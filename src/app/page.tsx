@@ -14,7 +14,7 @@ export default function LandingPage() {
       name: "Τραπέζι",
       sub: "Dine-in",
       icon: <Coffee />,
-      href: "/menu/welcome",
+      href: "/menu/welcome/",
       color: "bg-[#97dcf5]",
     },
     {
