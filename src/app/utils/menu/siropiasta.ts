@@ -1,0 +1,280 @@
+import { MenuItem } from "../menuData";
+
+export const siropiasta: MenuItem[] = [
+  {
+    id: "baklava",
+    categoryId: "siropiasta",
+    price: 14.00,
+    unit: "kg",
+    hasNuts: true,
+    translations: {
+      el: { name: "Μπακλαβάς", description: "Σιροπιαστό φύλλο με στρώσεις καρυδιού" },
+      en: { name: "Baklava", description: "Syrup-soaked phyllo pastry with walnut layers" },
+      de: { name: "Baklava", description: "Baklava: Sirupgetränkter Filoteig mit Walnussschichten" },
+      fr: { name: "Baklava", description: "Baklava: Pâte filo imbibée de sirop avec des couches de noix" },
+      es: { name: "Baklava", description: "Baklava: Masa filo empapada en almíbar con capas de nueces" },
+      sr: { name: "Baklava", description: "Baklava: Kora za pitu natopljena sirupom sa slojevima oraha" },
+      bg: { name: "Baklava", description: "Баклава: Сиропирани точени кори със слоеве орехи" },
+      ro: { name: "Baklava", description: "Baclavă: Aluat filo însiropat cu straturi de nucă" }
+    },
+  },
+  {
+    id: "galaktoboureko",
+    categoryId: "siropiasta",
+    price: 14.00,
+    unit: "kg",
+    translations: {
+      el: { name: "Γαλακτομπούρεκο", description: "Πίτα με κρέμα και φύλλο, περιχυμένη με σιρόπι" },
+      en: { name: "Galaktoboureko", description: "Custard pie with phyllo pastry, covered in syrup" },
+      de: { name: "Galaktoboureko", description: "Galaktoboureko: Grießpudding-Pastete mit Filoteig, übergossen mit Sirup" },
+      fr: { name: "Galaktoboureko", description: "Galaktoboureko: Tourte à la crème avec pâte filo, recouverte de sirop" },
+      es: { name: "Galaktoboureko", description: "Galaktoboureko: Pastel de crema pastelera con masa filo, cubierto de almíbar" },
+      sr: { name: "Galaktoboureko", description: "Galaktoboureko: Pita od griza i kora, prelivena sirupom" },
+      bg: { name: "Galaktoboureko", description: "Галактобуреко: Пай с грис крем и кори, залити със сироп" },
+      ro: { name: "Galaktoboureko", description: "Galaktoboureko: Plăcintă cu cremă de griș și aluat filo, acoperită cu sirop" }
+    },
+  },
+  {
+    id: "saragli",
+    categoryId: "siropiasta",
+    price: 14.00,
+    unit: "kg",
+    hasNuts: true,
+    translations: {
+      el: { name: "Σαραγλί", description: "Ρολά από φύλλο με ξηρούς καρπούς και σιρόπι" },
+      en: { name: "Saragli", description: "Phyllo rolls with nuts and syrup" },
+      de: { name: "Saragli", description: "Saragli: Filoteigröllchen mit Nüssen und Sirup" },
+      fr: { name: "Saragli", description: "Saragli: Rouleaux de pâte filo aux noix et au sirop" },
+      es: { name: "Saragli", description: "Saragli: Rollos de masa filo con nueces y almíbar" },
+      sr: { name: "Saragli", description: "Saragli: Rolnice od kora sa orasima i sirupom" },
+      bg: { name: "Saragli", description: "Сарагли: Рула от точени кори с ядки и сироп" },
+      ro: { name: "Saragli", description: "Saragli: Rulouri din aluat filo cu nuci și sirop" }
+    },
+  },
+  {
+    id: "gianniotiko",
+    categoryId: "siropiasta",
+    price: 14.00,
+    unit: "kg",
+    hasNuts: true,
+    translations: {
+      el: { name: "Γιαννιώτικο", description: "Παραδοσιακό γλυκό από τα Ιωάννινα με φύλλο, καταΐφι και καρύδια" },
+      en: { name: "Gianniotiko", description: "Traditional dessert from Ioannina with phyllo, kataifi, and walnuts" },
+      de: { name: "Gianniotiko", description: "Gianniotiko: Traditionelles Dessert aus Ioannina mit Filoteig, Kataifi und Walnüssen" },
+      fr: { name: "Gianniotiko", description: "Gianniotiko: Dessert traditionnel de Ioannina avec pâte filo, kadaïf et noix" },
+      es: { name: "Gianniotiko", description: "Gianniotiko: Postre tradicional de Ioannina con masa filo, kataifi y nueces" },
+      sr: { name: "Gianniotiko", description: "Gianniotiko: Tradicionalni desert iz Janjine sa korama, kadaifom i orasima" },
+      bg: { name: "Gianniotiko", description: "Яниотико: Традиционен десерт от Янина с кори, кадаиф и орехи" },
+      ro: { name: "Gianniotiko", description: "Gianniotiko: Desert tradițional din Ioannina cu aluat filo, cataif și nuci" }
+    },
+  },
+  {
+    id: "kataifi",
+    categoryId: "siropiasta",
+    price: 14.00,
+    unit: "kg",
+    hasNuts: true,
+    translations: {
+      el: { name: "Κανταΐφι", description: "Γλυκό από τρίμμα φύλλου, με ξηρούς καρπούς και σιρόπι" },
+      en: { name: "Kataifi", description: "Shredded phyllo dessert with nuts and syrup" },
+      de: { name: "Kataifi", description: "Kataifi: Engelshaar-Gebäck (Kadaifi) mit Nüssen und Sirup" },
+      fr: { name: "Kataifi", description: "Kataifi: Cheveux d'ange (Kadaïf) aux noix et au sirop" },
+      es: { name: "Kataifi", description: "Kataifi: Masa de hilos (Kataifi) con nueces y almíbar" },
+      sr: { name: "Kataifi", description: "Kataifi: Kadaif sa orasima i sirupom" },
+      bg: { name: "Kataifi", description: "Кадаиф: Кадаиф с ядки и сироп" },
+      ro: { name: "Kataifi", description: "Kataifi: Cataif cu nuci și sirop" }
+    },
+  },
+  {
+    id: "kourkoubini",
+    categoryId: "siropiasta",
+    price: 14.00,
+    unit: "kg",
+    translations: {
+      el: { name: "Κουρκουμπίνι", description: "Μικρές μπουκιές από φύλλο, σιροπιασμένες" },
+      en: { name: "Kourkoubini", description: "Small syrup-soaked phyllo bites" },
+      de: { name: "Kourkoubini", description: "Kourkoubini: Kleine, sirupgetränkte Filoteig-Häppchen" },
+      fr: { name: "Kourkoubini", description: "Kourkoubini: Petites bouchées de pâte filo imbibées de sirop" },
+      es: { name: "Kourkoubini", description: "Kourkoubini: Pequeños bocados de masa filo empapados en almíbar" },
+      sr: { name: "Kourkoubini", description: "Kourkoubini: Mali zalogaji od kora natopljeni sirupom" },
+      bg: { name: "Kourkoubini", description: "Куркубини: Малки хапки от точени кори, напоени със сироп" },
+      ro: { name: "Kourkoubini", description: "Kourkoubini: Mici bucăți de aluat filo însiropate" }
+    },
+  },
+  {
+    id: "touloumbaki",
+    categoryId: "siropiasta",
+    price: 14.00,
+    unit: "kg",
+    translations: {
+      el: { name: "Τουλουμπάκι", description: "Μικρές τηγανητές τουλούμπες, με σιρόπι" },
+      en: { name: "Touloumbaki", description: "Small tulumba fritters soaked in syrup" },
+      de: { name: "Touloumbaki", description: "Touloumbaki: Kleine frittierte Teigröllchen in Sirup" },
+      fr: { name: "Touloumbaki", description: "Touloumbaki: Petits beignets striés imbibés de sirop" },
+      es: { name: "Touloumbaki", description: "Touloumbaki: Pequeños buñuelos estriados empapados en almíbar" },
+      sr: { name: "Touloumbaki", description: "Touloumbaki: Male tulumbe natopljene sirupom" },
+      bg: { name: "Touloumbaki", description: "Тулумбаки: Малки тулумбички, напоени със сироп" },
+      ro: { name: "Touloumbaki", description: "Touloumbaki: Mici gogoși tulumba însiropate" }
+    },
+  },
+  {
+    id: "choconest",
+    categoryId: "siropiasta",
+    price: 14.00,
+    unit: "kg",
+    translations: {
+      el: { name: "Φωλιά με Σοκολάτα", description: "Φύλλο σε σχήμα φωλιάς, γεμισμένο με σοκολάτα" },
+      en: { name: "Chocolate Nest", description: "Phyllo nest filled with chocolate" },
+      de: { name: "Chocolate Nest", description: "Schokoladennest: Filoteig in Nestform, gefüllt mit Schokolade" },
+      fr: { name: "Chocolate Nest", description: "Nid au Chocolat: Pâte filo en forme de nid, remplie de chocolat" },
+      es: { name: "Chocolate Nest", description: "Nido de Chocolate: Masa filo en forma de nido, rellena de chocolate" },
+      sr: { name: "Chocolate Nest", description: "Čokoladno Gnezdo: Gnezdo od kora punjeno čokoladom" },
+      bg: { name: "Chocolate Nest", description: "Шоколадово Гнездо: Гнездо от точени кори, пълно с шоколад" },
+      ro: { name: "Chocolate Nest", description: "Cuib de Ciocolată: Cuib din aluat filo umplut cu ciocolată" }
+    },
+  },
+  {
+    id: "creamnest",
+    categoryId: "siropiasta",
+    price: 14.00,
+    unit: "kg",
+    translations: {
+      el: { name: "Φωλιά με Κρέμα", description: "Φύλλο σε σχήμα φωλιάς, γεμισμένο με κρέμα" },
+      en: { name: "Cream Nest", description: "Phyllo nest filled with cream" },
+      de: { name: "Cream Nest", description: "Cremenest: Filoteig in Nestform, gefüllt mit Creme" },
+      fr: { name: "Cream Nest", description: "Nid à la Crème: Pâte filo en forme de nid, remplie de crème" },
+      es: { name: "Cream Nest", description: "Nido de Crema: Masa filo en forma de nido, rellena de crema" },
+      sr: { name: "Cream Nest", description: "Gnezdo od Krema: Gnezdo od kora punjeno kremom" },
+      bg: { name: "Cream Nest", description: "Гнездо с Крем: Гнездо от точени кори, пълно с крем" },
+      ro: { name: "Cream Nest", description: "Cuib cu Cremă: Cuib din aluat filo umplut cu cremă" }
+    },
+  },
+  {
+    id: "cherrynest",
+    categoryId: "siropiasta",
+    price: 14.00,
+    unit: "kg",
+    hasCherry: true,
+    translations: {
+      el: { name: "Φωλιά με Βύσσινο", description: "Φύλλο σε σχήμα φωλιάς, γεμισμένο με βύσσινα" },
+      en: { name: "Sour Cherry Nest", description: "Phyllo nest filled with sour cherries" },
+      de: { name: "Sour Cherry Nest", description: "Sauerkirschnest: Filoteig in Nestform, gefüllt mit Sauerkirschen" },
+      fr: { name: "Sour Cherry Nest", description: "Nid aux Griottes: Pâte filo en forme de nid, remplie de griottes" },
+      es: { name: "Sour Cherry Nest", description: "Nido de Cerezas Ácidas: Masa filo en forma de nido, rellena de cerezas ácidas" },
+      sr: { name: "Sour Cherry Nest", description: "Gnezdo sa Višnjama: Gnezdo od kora punjeno višnjama" },
+      bg: { name: "Sour Cherry Nest", description: "Гнездо с Вишни: Гнездо от точени кори, пълно с вишни" },
+      ro: { name: "Sour Cherry Nest", description: "Cuib cu Vișine: Cuib din aluat filo umplut cu vișine" }
+    },
+  },
+  {
+    id: "trigono",
+    categoryId: "siropiasta",
+    price: 15.00,
+    unit: "kg",
+    translations: {
+      el: { name: "Τρίγωνο Πανοράματος", description: "Παραδοσιακό τρίγωνο γλυκό από το Πανόραμα, με γέμιση κρέμας πατισερί" },
+      en: { name: "Trigono Panoramatos", description: "Traditional triangle-shaped dessert from Panorama, filled with patisserie cream" },
+      de: { name: "Trigono Panoramatos", description: "Trigono Panoramatos: Traditionelles dreieckiges Dessert aus Panorama, gefüllt mit Konditorcreme" },
+      fr: { name: "Trigono Panoramatos", description: "Trigono Panoramatos: Dessert traditionnel de forme triangulaire de Panorama, fourré de crème pâtissière" },
+      es: { name: "Trigono Panoramatos", description: "Trigono Panoramatos: Postre tradicional en forma de triángulo de Panorama, relleno de crema pastelera" },
+      sr: { name: "Trigono Panoramatos", description: "Trigono Panoramatos: Tradicionalni desert u obliku trougla iz Panorame, punjen poslastičarskim kremom" },
+      bg: { name: "Trigono Panoramatos", description: "Тригоно Панораматос: Традиционен десерт с триъгълна форма от Панорама, пълен със сладкарски крем" },
+      ro: { name: "Trigono Panoramatos", description: "Trigono Panoramatos: Desert tradițional în formă de triunghi din Panorama, umplut cu cremă de patiserie" }
+    },
+  },
+  {
+    id: "revani",
+    categoryId: "siropiasta",
+    price: 3.50,
+    translations: {
+      el: { name: "Ρεβανί", description: "Κέικ με σιμιγδάλι, εμποτισμένο με σιρόπι" },
+      en: { name: "Revani", description: "Semolina sponge cake soaked in syrup" },
+      de: { name: "Revani", description: "Revani: Grießkuchen, getränkt in Sirup" },
+      fr: { name: "Revani", description: "Revani: Gâteau de semoule imbibé de sirop" },
+      es: { name: "Revani", description: "Revani: Bizcocho de sémola empapado en almíbar" },
+      sr: { name: "Revani", description: "Revani: Kolač od griza natopljen sirupom" },
+      bg: { name: "Revani", description: "Реване: Сиропиран кекс от грис" },
+      ro: { name: "Revani", description: "Revani: Prăjitură din griș însiropată" }
+    },
+  },
+  {
+    id: "portokalopita",
+    categoryId: "siropiasta",
+    price: 3.50,
+    hasNuts: true,   
+    hasCitrus: true, 
+    translations: {
+      el: { name: "Πορτοκαλόπιτα", description: "Πίτα με φύλλο και πορτοκάλι, σιροπιασμένη" },
+      en: { name: "Portokalopita", description: "Orange phyllo cake soaked in syrup" },
+      de: { name: "Portokalopita", description: "Portokalopita: Orangen-Filoteig-Kuchen, in Sirup getränkt" },
+      fr: { name: "Portokalopita", description: "Portokalopita: Gâteau de pâte filo à l'orange imbibé de sirop" },
+      es: { name: "Portokalopita", description: "Portokalopita: Pastel de masa filo con naranja empapado en almíbar" },
+      sr: { name: "Portokalopita", description: "Portokalopita: Kolač od kora sa pomorandžom natopljen sirupom" },
+      bg: { name: "Portokalopita", description: "Портокалопита: Сладкиш с точени кори и портокал, сиропиран" },
+      ro: { name: "Portokalopita", description: "Portokalopita: Prăjitură din aluat filo cu portocale însiropată" }
+    },
+  },
+  {
+    id: "karidopita",
+    categoryId: "siropiasta",
+    price: 3.50,
+    hasNuts: true,
+    translations: {
+      el: { name: "Καρυδόπιτα", description: "Κέικ με καρύδια και σιρόπι" },
+      en: { name: "Karidopita", description: "Walnut cake soaked in syrup" },
+      de: { name: "Karidopita", description: "Karidopita: Walnusskuchen, in Sirup getränkt" },
+      fr: { name: "Karidopita", description: "Karidopita: Gâteau aux noix imbibé de sirop" },
+      es: { name: "Karidopita", description: "Karidopita: Pastel de nueces empapado en almíbar" },
+      sr: { name: "Karidopita", description: "Karidopita: Kolač od oraha natopljen sirupom" },
+      bg: { name: "Karidopita", description: "Каридопита: Орехов кекс, напоен със сироп" },
+      ro: { name: "Karidopita", description: "Karidopita: Prăjitură cu nuci însiropată" }
+    },
+  },
+  {
+    id: "ekmekkataifi",
+    categoryId: "siropiasta",
+    price: 4.00,
+    hasNuts: true,
+    translations: {
+      el: { name: "Εκμέκ Κανταΐφι", description: "Καταΐφι με στρώση κρέμας και σιρόπι" },
+      en: { name: "Ekmek Kataifi", description: "Kataifi pastry with custard and syrup" },
+      de: { name: "Ekmek Kataifi", description: "Ekmek Kataifi: Kataifi-Gebäck geschichtet mit Vanillecreme und Sirup" },
+      fr: { name: "Ekmek Kataifi", description: "Ekmek Kataifi: Pâtisserie kadaïf avec couche de crème et sirop" },
+      es: { name: "Ekmek Kataifi", description: "Ekmek Kataifi: Pastel de kataifi con capa de crema y almíbar" },
+      sr: { name: "Ekmek Kataifi", description: "Ekmek Kataifi: Kadaif sa slojem krema i sirupom" },
+      bg: { name: "Ekmek Kataifi", description: "Екмек Кадаиф: Кадаиф със слой крем и сироп" },
+      ro: { name: "Ekmek Kataifi", description: "Ekmek Kataifi: Produse de patiserie cataif cu strat de cremă și sirop" }
+    },
+  },
+  {
+    id: "ekmekrevani",
+    categoryId: "siropiasta",
+    price: 4.00,
+    translations: {
+      el: { name: "Εκμέκ Ρεβανί", description: "Ρεβανί με στρώση κρέμας και σιρόπι" },
+      en: { name: "Ekmek Revani", description: "Revani sponge cake layered with custard and syrup" },
+      de: { name: "Ekmek Revani", description: "Ekmek Revani: Grießkuchen (Revani) geschichtet mit Vanillecreme und Sirup" },
+      fr: { name: "Ekmek Revani", description: "Ekmek Revani: Gâteau de semoule (Revani) avec couche de crème et sirop" },
+      es: { name: "Ekmek Revani", description: "Ekmek Revani: Bizcocho de sémola (Revani) en capas con crema y almíbar" },
+      sr: { name: "Ekmek Revani", description: "Ekmek Revani: Kolač od griza (Revani) sa slojem krema i sirupom" },
+      bg: { name: "Ekmek Revani", description: "Екмек Реване: Ревене (грис кекс) със слой крем и сироп" },
+      ro: { name: "Ekmek Revani", description: "Ekmek Revani: Prăjitură din griș (Revani) cu strat de cremă și sirop" }
+    },
+  },
+  {
+    id: "siropiasta_info_general",
+    categoryId: "siropiasta",
+    price: 0,
+    hidePrice: true,
+    translations: {
+      el: { name: "ℹ️ Χρήσιμες Πληροφορίες", description: "Στα προϊόντα που χρεώνονται με το κιλό υπάρχει επιπλέον service fee +0.50€." },
+      en: { name: "ℹ️ Useful Information", description: "An additional +0.50€ service fee applies to products sold per kilogram." },
+      de: { name: "ℹ️ Nützliche Informationen", description: "Für Produkte, die pro Kilogramm verkauft werden, fällt eine zusätzliche Servicegebühr von +0,50 € an." },
+      fr: { name: "ℹ️ Informations utiles", description: "Des frais de service supplémentaires de +0,50 € s'appliquent aux produits vendus au kilogramme." },
+      es: { name: "ℹ️ Información útil", description: "Se aplica un cargo de servicio adicional de +0,50 € a los productos vendidos por kilógramo." },
+      sr: { name: "ℹ️ Korisne informacije", description: "Primenjuje se dodatna doplata za uslugu od +0.50€ za proizvode koji se prodaju po kilogramu." },
+      bg: { name: "ℹ️ Полезна информация", description: "Удържа се допълнителна такса за обслужване από +0.50€ за продукти, продавани на килограм." },
+      ro: { name: "ℹ️ Informații utile", description: "Se aplică o taxă suplimentară de servire de +0.50€ pentru produsele vândute la kilogram." }
+    }
+  }
+];

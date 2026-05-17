@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+:root {
+  --zuc-blue: #97dcf5;
+  --zuc-light: #e7e7e7;
+}
+
+body {
+  background-color: var(--zuc-blue);
+  background-image: url("/images/background/GridArt_20250522_195346089_white.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #333;
+}
+
+/* Κρύβουμε τις μπάρες ΜΟΝΟ σε συσκευές αφής (Κινητά/Tablet) */
+@media (pointer: coarse) {
+  body {
+    -ms-overflow-style: none; /* IE και Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari και Opera */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
