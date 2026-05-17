@@ -28,8 +28,8 @@ export default function WelcomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[url('/images/background/GridArt_20250522_195346089_white.jpg')] bg-fixed bg-cover bg-center flex flex-col">
-      {/* --- HEADER (Με το δικό σου animation) --- */}
+    <div className="min-h-screen bg-[url('/images/background/GridArt_20250522_195346089_white.jpg')] bg-fixed bg-cover bg-center flex flex-col font-sans">
+      {/* --- HEADER (Κλειδωμένο Context) --- */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -48,38 +48,44 @@ export default function WelcomePage() {
         </div>
       </motion.header>
 
-      {/* --- ΚΕΝΤΡΙΚΟ CONTAINER (Με το δικό σου animation) --- */}
-      <div className="p-4 max-w-3xl mx-auto flex-grow w-full flex items-center justify-center">
+      {/* --- ΚΕΝΤΡΙΚΟ CONTAINER (Μεγάλωσε σε max-w-2xl και p-10) --- */}
+      <div className="p-4 flex-grow w-full flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-white/50 w-full max-w-md text-center"
+          className="bg-white/95 backdrop-blur-sm p-10 rounded-[2.5rem] shadow-xl border border-white w-full max-w-2xl text-center"
         >
-          <h1 className="text-xl font-bold text-slate-800 mb-1">Welcome</h1>
-          <p className="text-sm text-slate-500 mb-6 italic leading-snug">
-            Please select your language / Παρακαλώ επιλέξτε γλώσσα
+          <h1 className="text-3xl font-extrabold text-slate-800 mb-2 tracking-tight">
+            Welcome
+          </h1>
+          {/* Διορθώθηκε το κείμενο (μόνο αγγλικά) */}
+          <p className="text-slate-500 text-base mb-10 italic font-medium">
+            Please select your language
           </p>
 
-          {/* Grid Γλωσσών με hover/tap effects από το LandingPage σου */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* Grid Γλωσσών με μεγαλύτερο gap */}
+          <div className="grid grid-cols-2 gap-6">
             {availableLanguages.map((l) => (
               <motion.button
                 key={l.code}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.03, translateY: -5 }}
+                whileTap={{ scale: 0.97 }}
                 onClick={() => handleLanguageSelect(l.code)}
-                className="bg-white/95 hover:bg-slate-50 p-4 rounded-xl border border-slate-200/60 flex flex-col items-center justify-center transition-all shadow-sm hover:shadow-md group"
+                /* Μεγαλώσαμε το padding (p-8) και το rounded (rounded-3xl) */
+                className="bg-white hover:bg-slate-50/50 p-8 rounded-3xl border border-slate-200 flex flex-col items-center justify-center transition-all shadow-sm hover:shadow-lg group"
               >
-                <div className="relative w-8 h-5 shadow-sm border border-slate-200 rounded-sm overflow-hidden mb-2 shrink-0">
+                {/* Μεγαλώσαμε αισθητά τη σημαία (w-20 h-12) */}
+                <div className="relative w-20 h-12 shadow-md border border-slate-200 rounded-lg overflow-hidden mb-4 shrink-0 transition-transform group-hover:scale-105">
                   <Image
                     src={l.flag}
                     alt={l.label}
                     fill
-                    sizes="40px"
+                    sizes="100px"
                     className="object-cover"
                   />
                 </div>
-                <span className="text-xs font-bold text-slate-700 group-hover:text-slate-900 transition-colors">
+                {/* Μεγαλώσαμε το κείμενο (text-lg) */}
+                <span className="text-lg font-bold text-slate-700 group-hover:text-slate-900 transition-colors">
                   {l.label}
                 </span>
               </motion.button>
@@ -88,7 +94,7 @@ export default function WelcomePage() {
         </motion.div>
       </div>
 
-      {/* --- FOOTER --- */}
+      {/* --- FOOTER (Κλειδωμένο Context) --- */}
       <footer className="mt-auto py-6 text-center text-slate-600 text-sm font-medium bg-white/70 backdrop-blur-md border-t border-slate-200">
         <p>
           © 2007 - {new Date().getFullYear()} Zucchero · All Rights Reserved
