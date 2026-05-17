@@ -1,7 +1,7 @@
 "use client";
 
 import "../globals.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { categories, menuItems } from "../utils/menuData";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -51,7 +51,7 @@ const uiTranslations = {
     perKg: "/ kg",
     rights: "Tous droits réservés",
     vegan: "Végan",
-    nuts: "Fruits à coque", // Αλλαγή σε πιο σωστή ορολογία από το "Noix"
+    nuts: "Fruits à coque",
     glutenFree: "Sans Gluten",
     citrus: "Agrumes",
     strawberry: "Fraise",
@@ -63,7 +63,7 @@ const uiTranslations = {
     perKg: "/ kg",
     rights: "Todos los derechos reservados",
     vegan: "Vegano",
-    nuts: "Frutos Secos", // Αλλαγή σε πιο σωστή ορολογία από το "Nueces"
+    nuts: "Frutos Secos",
     glutenFree: "Sin Gluten",
     citrus: "Cítricos",
     strawberry: "Fresa",
@@ -115,6 +115,21 @@ export default function MenuPage() {
   const [lang, setLang] = useState<LangCode>("el");
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Συγχρονισμός γλώσσας κατά το mount της σελίδας
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get("lang");
+
+    if (urlLang && urlLang in uiTranslations) {
+      setLang(urlLang as LangCode);
+    } else {
+      const savedLang = localStorage.getItem("zucchero_lang");
+      if (savedLang && savedLang in uiTranslations) {
+        setLang(savedLang as LangCode);
+      }
+    }
+  }, []);
 
   const activeItems =
     searchQuery.trim() !== ""
@@ -207,7 +222,6 @@ export default function MenuPage() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
                 transition={{ duration: 0.15 }}
-                /* ΑΦΑΙΡΕΘΗΚΑΝ ΤΑ: max-h-64 overflow-y-auto hide-scrollbar */
                 className="absolute top-full right-0 mt-2 w-36 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50"
               >
                 {availableLanguages.map((l) => (
@@ -274,7 +288,6 @@ export default function MenuPage() {
                   : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
               }`}
             >
-              {/* Η ΜΑΓΕΙΑ ΕΙΝΑΙ ΕΔΩ: Τραβάει αυτόματα τη μετάφραση της ενεργής γλώσσας */}
               {cat.translations[lang]}
             </button>
           ))}
@@ -307,13 +320,12 @@ export default function MenuPage() {
                       </p>
                     </div>
 
-                    {/* --- Η ΤΕΛΕΙΑ, ΚΑΘΑΡΗ ΤΙΜΗ --- */}
                     {!item.hidePrice && (
                       <div className="bg-[#97dcf5]/20 px-3 py-2 rounded-xl whitespace-nowrap shadow-sm flex items-baseline gap-1">
                         <span className="font-bold text-slate-800 text-lg">
                           {item.price.toFixed(2)}€
                         </span>
-                        {item.unit === "kg" && (
+                        {item.unit === "grid" && (
                           <span className="text-xs font-bold text-slate-600">
                             {ui.perKg}
                           </span>
@@ -327,7 +339,7 @@ export default function MenuPage() {
                     item.hasNuts ||
                     item.hasStrawberry ||
                     item.hasCherry ||
-                    item.isGlutenFree || // ΑΛΛΑΞΕ ΑΥΤΟ
+                    item.isGlutenFree ||
                     item.hasCitrus) && (
                     <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-slate-100/50">
                       {item.isVegan && (
@@ -342,7 +354,6 @@ export default function MenuPage() {
                         </span>
                       )}
 
-                      {/* ΝΕΟ: ΧΩΡΙΣ ΓΛΟΥΤΕΝΗ */}
                       {item.isGlutenFree && (
                         <span className="flex items-center gap-1 text-[10px] font-bold bg-blue-100 text-blue-700 px-2 py-1 rounded-md shadow-sm">
                           🌾 {ui.glutenFree}

@@ -2,21 +2,21 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
-// Η λίστα με τις γλώσσες και τα paths για τις δικές σου σημαίες
-const languages = [
-  { code: "el", name: "Ελληνικά", flagSrc: "/images/flags/greece_flag.png" },
+const availableLanguages = [
+  { code: "el", label: "Ελληνικά", flag: "/images/flags/greece_flag.png" },
   {
     code: "en",
-    name: "English",
-    flagSrc: "/images/flags/united_kingdom_flag.png",
+    label: "English",
+    flag: "/images/flags/united_kingdom_flag.png",
   },
-  { code: "de", name: "Deutsch", flagSrc: "/images/flags/germany_flag.png" },
-  { code: "fr", name: "Français", flagSrc: "/images/flags/france_flag.png" },
-  { code: "es", name: "Español", flagSrc: "/images/flags/spain_flag.png" },
-  { code: "sr", name: "Srpski", flagSrc: "/images/flags/serbia_flag.png" },
-  { code: "bg", name: "Български", flagSrc: "/images/flags/bulgaria_flag.png" },
-  { code: "ro", name: "Română", flagSrc: "/images/flags/romania_flag.png" },
+  { code: "de", label: "Deutsch", flag: "/images/flags/germany_flag.png" },
+  { code: "fr", label: "Français", flag: "/images/flags/france_flag.png" },
+  { code: "es", label: "Español", flag: "/images/flags/spain_flag.png" },
+  { code: "sr", label: "Srpski", flag: "/images/flags/serbia_flag.png" },
+  { code: "bg", label: "Български", flag: "/images/flags/bulgaria_flag.png" },
+  { code: "ro", label: "Română", flag: "/images/flags/romania_flag.png" },
 ];
 
 export default function WelcomePage() {
@@ -28,44 +28,72 @@ export default function WelcomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-50 flex flex-col items-center justify-center p-6">
-      {/* Κεντρικό Logo / Τίτλος */}
-      <div className="text-center mb-10 animate-fade-in-down">
-        <h1 className="text-4xl font-extrabold tracking-tight text-neutral-900 mb-2">
-          Zucchero <span className="text-orange-500">Cafe</span>
-        </h1>
-        <p className="text-neutral-500 text-lg">Please select your language</p>
+    <div className="min-h-screen bg-[url('/images/background/GridArt_20250522_195346089_white.jpg')] bg-fixed bg-cover bg-center flex flex-col">
+      {/* --- HEADER (Με το δικό σου animation) --- */}
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        style={{ backgroundColor: "rgb(151, 220, 245)" }}
+        className="p-4 shadow-sm relative flex justify-center items-center min-h-[72px] z-50"
+      >
+        <div className="relative w-36 h-12">
+          <Image
+            src="/images/logo/zucchero_logo.png"
+            alt="Zucchero"
+            fill
+            sizes="150px"
+            className="object-contain"
+            priority
+          />
+        </div>
+      </motion.header>
+
+      {/* --- ΚΕΝΤΡΙΚΟ CONTAINER (Με το δικό σου animation) --- */}
+      <div className="p-4 max-w-3xl mx-auto flex-grow w-full flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-white/50 w-full max-w-md text-center"
+        >
+          <h1 className="text-xl font-bold text-slate-800 mb-1">Welcome</h1>
+          <p className="text-sm text-slate-500 mb-6 italic leading-snug">
+            Please select your language / Παρακαλώ επιλέξτε γλώσσα
+          </p>
+
+          {/* Grid Γλωσσών με hover/tap effects από το LandingPage σου */}
+          <div className="grid grid-cols-2 gap-4">
+            {availableLanguages.map((l) => (
+              <motion.button
+                key={l.code}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => handleLanguageSelect(l.code)}
+                className="bg-white/95 hover:bg-slate-50 p-4 rounded-xl border border-slate-200/60 flex flex-col items-center justify-center transition-all shadow-sm hover:shadow-md group"
+              >
+                <div className="relative w-8 h-5 shadow-sm border border-slate-200 rounded-sm overflow-hidden mb-2 shrink-0">
+                  <Image
+                    src={l.flag}
+                    alt={l.label}
+                    fill
+                    sizes="40px"
+                    className="object-cover"
+                  />
+                </div>
+                <span className="text-xs font-bold text-slate-700 group-hover:text-slate-900 transition-colors">
+                  {l.label}
+                </span>
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
       </div>
 
-      {/* Grid Γλωσσών με Εικόνες */}
-      <div className="w-full max-w-md grid grid-cols-2 gap-4">
-        {languages.map((lang) => (
-          <button
-            key={lang.code}
-            onClick={() => handleLanguageSelect(lang.code)}
-            className="flex flex-col items-center justify-center bg-white p-5 rounded-2xl shadow-sm border border-neutral-100 hover:border-orange-500 hover:shadow-md transition-all duration-200 active:scale-95 group"
-          >
-            {/* Χρήση του Next Image για βελτιστοποίηση */}
-            <div className="relative w-12 h-8 mb-3 group-hover:scale-110 transition-transform duration-200 overflow-hidden rounded-sm shadow-sm">
-              <Image
-                src={lang.flagSrc}
-                alt={`${lang.name} flag`}
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <span className="text-neutral-700 font-medium text-sm">
-              {lang.name}
-            </span>
-          </button>
-        ))}
-      </div>
-
-      {/* Footer */}
-      <div className="mt-12 text-neutral-400 text-xs">
-        &copy; {new Date().getFullYear()} Zucchero Cafe. All rights reserved.
-      </div>
+      {/* --- FOOTER --- */}
+      <footer className="mt-auto py-6 text-center text-slate-600 text-sm font-medium bg-white/70 backdrop-blur-md border-t border-slate-200">
+        <p>
+          © 2007 - {new Date().getFullYear()} Zucchero · All Rights Reserved
+        </p>
+      </footer>
     </div>
   );
 }
