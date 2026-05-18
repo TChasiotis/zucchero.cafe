@@ -69,9 +69,13 @@ export default function WelcomePage() {
         {/* Το Grid των γλωσσών (Αφαιρέθηκε το ελαστικό κεντράρισμα, ακολουθεί φυσικά) */}
         <div className="w-full min-h-0">
           <div className="grid grid-cols-2 gap-3.5 w-full">
-            {availableLanguages.map((l) => (
+            {/* Προσθέσαμε το index εδώ για να ελέγχουμε το delay του καθενός */}
+            {availableLanguages.map((l, index) => (
               <motion.button
                 key={l.code}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }} // Εδώ γίνεται η μαγεία του καταρράκτη
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => handleLanguageSelect(l.code)}

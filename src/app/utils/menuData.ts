@@ -58,7 +58,7 @@ export const categories: Category[] = [
     id: "pastakia", translations: { el: "Παστάκια", en: "Mini Pastries", de: "Mini-Gebäck", fr: "Mini-Pâtisseries", es: "Mini Pasteles", sr: "Mini Kolači", bg: "Мини Пасти", ro: "Mini Prăjituri" } 
   },
   { 
-    id: "croissant", translations: { el: "Κρουασάν", en: "Croissants", de: "Croissants", fr: "Croissants", es: "Croissants", sr: "Kroasani", bg: "Кроасани", ro: "Croissante" } 
+    id: "croissants", translations: { el: "Κρουασάν", en: "Croissants", de: "Croissants", fr: "Croissants", es: "Croissants", sr: "Kroasani", bg: "Кроасани", ro: "Croissante" } 
   },
   { 
     id: "cookies", translations: { el: "Κουλουράκια", en: "Cookies", de: "Plätzchen", fr: "Biscuits", es: "Galletas", sr: "Keksići", bg: "Курабийки", ro: "Biscuiți" } 
@@ -113,6 +113,7 @@ import { pastes } from "./menu/pastes";
 import { siropiasta } from "./menu/siropiasta";
 import { iceCream } from "./menu/pagwta";
 import { pastakia } from "./menu/pastakia";
+import { croissants } from "./menu/croissants";
 
 // Η ΜΕΓΑΛΗ ΕΝΩΣΗ
 export const menuItems: MenuItem[] = [
@@ -120,4 +121,5 @@ export const menuItems: MenuItem[] = [
   ...siropiasta,
   ...iceCream,
   ...pastakia,
+  ...croissants,
 ];

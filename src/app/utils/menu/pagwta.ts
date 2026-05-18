@@ -94,51 +94,43 @@ export const iceCream: MenuItem[] = [
     }
   },
   {
-    id: "syrup_chocolate",
-    categoryId: "ice_cream",
+    id: "ice_cream_syrups",
+    categoryId: "ice_cream", 
     price: 0,
     hidePrice: true,
     translations: {
-      el: { name: "Έξτρα: Σιρόπι Σοκολάτας", description: "Γαρνίρετε το παγωτό σας με σιρόπι σοκολάτας" },
-      en: { name: "Extra: Chocolate Syrup", description: "Top your ice cream with chocolate syrup" },
-      de: { name: "Extra: Chocolate Syrup", description: "Extra Schokoladensirup: Garnieren Sie Ihr Eis mit Schokoladensirup" },
-      fr: { name: "Extra: Chocolate Syrup", description: "Supplément Sirop de Chocolat: Garnissez votre glace de sirop de chocolat" },
-      es: { name: "Extra: Chocolate Syrup", description: "Extra Sirop de Chocolate: Decora tu helado con sirope de chocolate" },
-      sr: { name: "Extra: Chocolate Syrup", description: "Dodatak Čokoladni Sirup: Prelivanje sladoleda čokoladnim sirupom" },
-      bg: { name: "Extra: Chocolate Syrup", description: "Допълнително Шоколадов Сироп: Гарнирайте сладоледа си с шоколадов сироп" },
-      ro: { name: "Extra: Chocolate Syrup", description: "Extra Sirop de Ciocolată: Acoperiți înghețata cu sirop de ciocolată" }
-    }
-  },
-  {
-    id: "syrup_caramel",
-    categoryId: "ice_cream",
-    price: 0,
-    hidePrice: true,
-    translations: {
-      el: { name: "Έξτρα: Σιρόπι Καραμέλας", description: "Γαρνίρετε το παγωτό σας με σιρόπι καραμέλας" },
-      en: { name: "Extra: Caramel Syrup", description: "Top your ice cream with caramel syrup" },
-      de: { name: "Extra: Caramel Syrup", description: "Extra Karamellsirup: Garnieren Sie Ihr Eis mit Karamellsirup" },
-      fr: { name: "Extra: Caramel Syrup", description: "Supplément Sirop de Caramel: Garnissez votre glace de sirop de caramel" },
-      es: { name: "Extra: Caramel Syrup", description: "Extra Sirop de Caramelo: Decora tu helado con sirope de caramelo" },
-      sr: { name: "Extra: Caramel Syrup", description: "Dodatak Sirup od Karamele: Prelivanje sladoleda sirupom od karamele" },
-      bg: { name: "Extra: Caramel Syrup", description: "Допълнително Карамелен Сироп: Гарнирайте сладоледа си с карамелен сироп" },
-      ro: { name: "Extra: Caramel Syrup", description: "Extra Sirop de Caramel: Acoperiți înghețata cu sirop de caramel" }
-    }
-  },
-  {
-    id: "syrup_strawberry",
-    categoryId: "ice_cream",
-    price: 0,
-    hidePrice: true,
-    translations: {
-      el: { name: "Έξτρα: Σιρόπι Φράουλας", description: "Γαρνίρετε το παγωτό σας με σιρόπι φράουλας" },
-      en: { name: "Extra: Strawberry Syrup", description: "Top your ice cream with strawberry syrup" },
-      de: { name: "Extra: Strawberry Syrup", description: "Extra Erdbeersirup: Garnieren Sie Ihr Eis mit Erdbeersirup" },
-      fr: { name: "Extra: Strawberry Syrup", description: "Supplément Sirop de Fraise: Garnissez votre glace de sirop de fraise" },
-      es: { name: "Extra: Strawberry Syrup", description: "Extra Sirop de Fresa: Decora tu helado con sirope de fresa" },
-      sr: { name: "Extra: Strawberry Syrup", description: "Dodatak Sirup od Jagode: Prelivanje sladoleda sirupom od jagode" },
-      bg: { name: "Extra: Strawberry Syrup", description: "Допълнително Ягодов Сироп: Гарнирайте сладоледа си с ягодов сироп" },
-      ro: { name: "Extra: Strawberry Syrup", description: "Extra Sirop de Căpșuni: Acoperiți înghețata cu sirop de căpșuni" }
+      el: { 
+        name: "Έξτρα (Extras): Σιρόπι Σοκολάτας, Σιρόπι Καραμέλας, Σιρόπι Φράουλας", 
+        description: "" 
+      },
+      en: { 
+        name: "Extras: Chocolate Syrup, Caramel Syrup, Strawberry Syrup", 
+        description: "" 
+      },
+      de: { 
+        name: "Extras: Chocolate Syrup, Caramel Syrup, Strawberry Syrup", 
+        description: "Extras: Schokoladensirup, Karamellsirup, Erdbeersirup" 
+      },
+      fr: { 
+        name: "Extras: Chocolate Syrup, Caramel Syrup, Strawberry Syrup", 
+        description: "Suppléments: Sirop de Chocolat, Sirop de Caramel, Sirop de Fraise" 
+      },
+      es: { 
+        name: "Extras: Chocolate Syrup, Caramel Syrup, Strawberry Syrup", 
+        description: "Extras: Sirope de Chocolate, Sirope de Caramelo, Sirope de Fresa" 
+      },
+      sr: { 
+        name: "Extras: Chocolate Syrup, Caramel Syrup, Strawberry Syrup", 
+        description: "Dodaci: Čokoladni sirup, Sirup od karamele, Sirup od jagode" 
+      },
+      bg: { 
+        name: "Extras: Chocolate Syrup, Caramel Syrup, Strawberry Syrup", 
+        description: "Добавки: Шоколадов сироп, Карамелен сироп, Ягодов сироп" 
+      },
+      ro: { 
+        name: "Extras: Chocolate Syrup, Caramel Syrup, Strawberry Syrup", 
+        description: "Extras: Sirop de Ciocolată, Sirop de Caramel, Sirop de Căpșuni" 
+      }
     }
   },
   {
