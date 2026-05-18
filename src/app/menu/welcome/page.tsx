@@ -75,7 +75,7 @@ export default function WelcomePage() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => handleLanguageSelect(l.code)}
-                className="bg-white/95 hover:bg-slate-50/50 py-4 px-4 rounded-xl border border-slate-200/80 flex flex-col items-center justify-center transition-all shadow-sm hover:shadow-md group"
+                className="bg-white/95 hover:bg-slate-50/50 py-5 px-4 rounded-xl border border-slate-200/80 flex flex-col items-center justify-center transition-all shadow-sm hover:shadow-md group"
               >
                 <div className="relative w-14 h-9 shadow-sm border border-slate-200 rounded-md overflow-hidden mb-1.5 shrink-0">
                   <Image
