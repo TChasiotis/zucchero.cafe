@@ -12,6 +12,7 @@ const uiTranslations = {
     search: "Αναζήτηση προϊόντος...",
     noResults: "Δεν βρέθηκε κάτι για",
     perKg: "/ κιλό",
+    perPortion: "/ μερίδα",
     rights: "Όλα τα δικαιώματα διατηρούνται",
     vegan: "Vegan / Νηστίσιμο",
     nuts: "Ξηροί Καρποί",
@@ -24,6 +25,7 @@ const uiTranslations = {
     search: "Search for items...",
     noResults: "No results found for",
     perKg: "/ kg",
+    perPortion: "/ portion",
     rights: "All rights reserved",
     vegan: "Vegan",
     nuts: "Nuts",
@@ -36,6 +38,7 @@ const uiTranslations = {
     search: "Artikel suchen...",
     noResults: "Keine Ergebnisse für",
     perKg: "/ kg",
+    perPortion: "/ Portion",
     rights: "Alle Rechte vorbehalten",
     vegan: "Vegan",
     nuts: "Nüsse",
@@ -48,6 +51,7 @@ const uiTranslations = {
     search: "Rechercher des articles...",
     noResults: "Aucun résultat pour",
     perKg: "/ kg",
+    perPortion: "/ Portion",
     rights: "Tous droits réservés",
     vegan: "Végan",
     nuts: "Fruits à coque",
@@ -60,6 +64,7 @@ const uiTranslations = {
     search: "Buscar artículos...",
     noResults: "No hay resultados para",
     perKg: "/ kg",
+    perPortion: "/ porción",
     rights: "Todos los derechos reservados",
     vegan: "Vegano",
     nuts: "Frutos Secos",
@@ -72,6 +77,7 @@ const uiTranslations = {
     search: "Pretraži proizvode...",
     noResults: "Nema rezultata za",
     perKg: "/ kg",
+    perPortion: "/ porcija",
     rights: "Sva prava zadržana",
     vegan: "Vegansko / Posno",
     nuts: "Orašasti Plodovi",
@@ -84,6 +90,7 @@ const uiTranslations = {
     search: "Търсене на продукти...",
     noResults: "Няма резултати за",
     perKg: "/ кг",
+    perPortion: "/ порция",
     rights: "Всички права запазени",
     vegan: "Веган / Постно",
     nuts: "Ядки",
@@ -96,6 +103,7 @@ const uiTranslations = {
     search: "Căutați produse...",
     noResults: "Niciun rezultat pentru",
     perKg: "/ kg",
+    perPortion: "/ porție",
     rights: "Toate drepturile rezervate",
     vegan: "Vegan / De Post",
     nuts: "Nuci",
@@ -324,10 +332,15 @@ export default function MenuClient({
                           {item.price.toFixed(2)}€
                         </span>
 
-                        {/* 👇 ΕΔΩ ΗΤΑΝ ΤΟ "BUG": Το αλλάξαμε από "grid" σε "kg" 👇 */}
                         {item.unit === "kg" && (
                           <span className="text-xs font-bold text-slate-600">
                             {ui.perKg}
+                          </span>
+                        )}
+
+                        {item.unit === "portion" && (
+                          <span className="text-xs font-bold text-slate-600">
+                            {ui.perPortion}
                           </span>
                         )}
                       </div>

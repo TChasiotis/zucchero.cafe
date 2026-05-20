@@ -100,7 +100,7 @@ export const iceCream: MenuItem[] = [
     hidePrice: true,
     translations: {
       el: { 
-        name: "Έξτρα (Extras): Σιρόπι Σοκολάτας, Σιρόπι Καραμέλας, Σιρόπι Φράουλας", 
+        name: "Extras: Σιρόπι Σοκολάτας, Σιρόπι Καραμέλας, Σιρόπι Φράουλας", 
         description: "" 
       },
       en: { 

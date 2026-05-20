@@ -25,4 +25,5 @@ export const menuItems = sqliteTable("menu_items", {
   hasCherry: integer("has_cherry", { mode: "boolean" }).default(false),
   isGlutenFree: integer("is_gluten_free", { mode: "boolean" }).default(false),
   hasCitrus: integer("has_citrus", { mode: "boolean" }).default(false),
+  isSoldOut: integer("is_sold_out", { mode: "boolean" }).default(false),
 });
