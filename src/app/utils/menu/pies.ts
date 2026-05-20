@@ -120,14 +120,14 @@ export const pies: MenuItem[] = [
     unit: "portion",
     isSoldOut: false,
     translations: {
-      el: { name: "Μπουγάτσα με Κρέμα (Μερίδα)", description: "Ολόκληρη χορταστική μερίδα παραδοσιακής μπουγάτσας με γλυκιά κρέμα σιμιγδαλιού, πασπαλισμένη με άχνη ζάχαρη και κανέλα" },
-      en: { name: "Bougatsa with Cream (Portion)", description: "Full portion of traditional bougatsa with sweet semolina cream, dusted with powdered sugar and cinnamon" },
-      de: { name: "Bougatsa with Cream (Portion)", description: "Bougatsa mit Creme (Portion): Ganze Portion traditionelle Bougatsa mit süßer Grießcreme, bestäubt mit Puderzucker und Zimt" },
-      fr: { name: "Bougatsa with Cream (Portion)", description: "Bougatsa à la Crème (Portion): Portion entière de bougatsa traditionnelle avec crème de semoule douce, saupoudrée de sucre glace et de cannelle" },
-      es: { name: "Bougatsa with Cream (Portion)", description: "Bougatsa con Crema (Porción): Porción entera de bougatsa tradicional con crema dulce de sémola, espolvoreada con azúcar glas y canela" },
-      sr: { name: "Bougatsa with Cream (Portion)", description: "Bugaca sa Kremom (Porcija): Cela porcija tradicionalne bugace sa slatkim kremom od griza, posuta šećerom u prahu i cimetom" },
-      bg: { name: "Bougatsa with Cream (Portion)", description: "Бугаца с Крем (Порция): Цяла порция традиционна бугаца със сладък крем от грис, поръсена с пудра захар и канела" },
-      ro: { name: "Bougatsa with Cream (Portion)", description: "Bougatsa cu Cremă (Porție): Porție întreagă de bougatsa tradițională cu cremă dulce de griș, presărată cu zahăr pudră și scorțișoară" }
+      el: { name: "Μπουγάτσα με Κρέμα", description: "Παραδοσιακή μπουγάτσα με γλυκιά κρέμα σιμιγδαλιού, πασπαλισμένη με άχνη ζάχαρη και κανέλα" },
+      en: { name: "Bougatsa with Cream", description: "Traditional bougatsa with sweet semolina cream, dusted with powdered sugar and cinnamon" },
+      de: { name: "Bougatsa with Cream", description: "Traditionelle Bougatsa mit süßer Grießcreme, bestäubt mit Puderzucker und Zimt" },
+      fr: { name: "Bougatsa with Cream", description: "Bougatsa à la crème traditionnelle avec crème de semoule douce, saupoudrée de sucre glace et de cannelle" },
+      es: { name: "Bougatsa with Cream", description: "Bougatsa tradicional con crema dulce de sémola, espolvoreada con azúcar glas y canela" },
+      sr: { name: "Bougatsa with Cream", description: "Tradicionalna bugaca sa slatkim kremom od griza, posuta šećerom u prahu i cimetom" },
+      bg: { name: "Bougatsa with Cream", description: "Традиционна бугаца със сладък крем от грис, поръсена с пудра захар и канела" },
+      ro: { name: "Bougatsa with Cream", description: "Bougatsa tradițională cu cremă dulce de griș, presărată cu zahăr pudră și scorțișoară" }
     }
   },
   // --- ΝΗΣΤΙΣΙΜΕΣ (VEGAN) ΠΙΤΕΣ ---
