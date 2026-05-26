@@ -121,13 +121,31 @@ export const cold_bev: MenuItem[] = [
       ro: { name: "Dairy Products", description: "" }
     }
   },
+  // --- SEPARATOR: ΓΑΛΑΚΤΟΚΟΜΙΚΑ ---
+  {
+    id: "separator_dairy",
+    categoryId: "cold_bev",
+    price: 0,
+    hidePrice: true,
+    isSeparator: true,
+    translations: {
+      el: { name: "Γαλακτοκομικά", description: "" },
+      en: { name: "Dairy Products", description: "" },
+      de: { name: "Dairy Products", description: "" },
+      fr: { name: "Dairy Products", description: "" },
+      es: { name: "Dairy Products", description: "" },
+      sr: { name: "Dairy Products", description: "" },
+      bg: { name: "Dairy Products", description: "" },
+      ro: { name: "Dairy Products", description: "" }
+    }
+  },
   {
     id: "cold_bev_chocomilk_330",
     categoryId: "cold_bev",
     price: 2.00,
     translations: {
-      el: { name: "Σοκολατούχο Γάλα 330ml", description: "" },
-      en: { name: "Chocolate Milk 330ml", description: "" },
+      el: { name: "Σοκολατούχο Γάλα 330ml", description: "Απολαυστικό, δροσερό σοκολατούχο γάλα υψηλής ποιότητας" },
+      en: { name: "Chocolate Milk 330ml", description: "Delicious, refreshing premium chocolate milk" },
       de: { name: "Chocolate Milk 330ml", description: "Schokoladenmilch 330ml" },
       fr: { name: "Chocolate Milk 330ml", description: "Lait au chocolat 330ml" },
       es: { name: "Chocolate Milk 330ml", description: "Leche con chocolate 330ml" },
@@ -141,8 +159,8 @@ export const cold_bev: MenuItem[] = [
     categoryId: "cold_bev",
     price: 2.20,
     translations: {
-      el: { name: "Σοκολατούχο Γάλα 500ml", description: "" },
-      en: { name: "Chocolate Milk 500ml", description: "" },
+      el: { name: "Σοκολατούχο Γάλα 500ml", description: "Απολαυστικό, δροσερό σοκολατούχο γάλα σε μεγάλη συσκευασία" },
+      en: { name: "Chocolate Milk 500ml", description: "Delicious, refreshing chocolate milk in a large bottle" },
       de: { name: "Chocolate Milk 500ml", description: "Schokoladenmilch 500ml" },
       fr: { name: "Chocolate Milk 500ml", description: "Lait au chocolat 500ml" },
       es: { name: "Chocolate Milk 500ml", description: "Leche con chocolate 500ml" },
@@ -156,8 +174,8 @@ export const cold_bev: MenuItem[] = [
     categoryId: "cold_bev",
     price: 2.00,
     translations: {
-      el: { name: "Σοκολατούχο Γάλα Ελαφρύ 330ml", description: "" },
-      en: { name: "Chocolate Milk Light 330ml", description: "" },
+      el: { name: "Σοκολατούχο Γάλα Ελαφρύ 330ml", description: "Η κλασική γεύση της σοκολάτας, με χαμηλά λιπαρά" },
+      en: { name: "Chocolate Milk Light 330ml", description: "The classic chocolate taste, with low fat" },
       de: { name: "Chocolate Milk Light 330ml", description: "Fettarme Schokoladenmilch 330ml" },
       fr: { name: "Chocolate Milk Light 330ml", description: "Lait au chocolat allégé 330ml" },
       es: { name: "Chocolate Milk Light 330ml", description: "Leche con chocolate desnatada 330ml" },
@@ -171,8 +189,8 @@ export const cold_bev: MenuItem[] = [
     categoryId: "cold_bev",
     price: 2.20,
     translations: {
-      el: { name: "Σοκολατούχο Γάλα Ελαφρύ 500ml", description: "" },
-      en: { name: "Chocolate Milk Light 500ml", description: "" },
+      el: { name: "Σοκολατούχο Γάλα Ελαφρύ 500ml", description: "Η κλασική γεύση της σοκολάτας σε μεγάλη συσκευασία, με χαμηλά λιπαρά" },
+      en: { name: "Chocolate Milk Light 500ml", description: "The classic chocolate taste in a large bottle, with low fat" },
       de: { name: "Chocolate Milk Light 500ml", description: "Fettarme Schokoladenmilch 500ml" },
       fr: { name: "Chocolate Milk Light 500ml", description: "Lait au chocolat allégé 500ml" },
       es: { name: "Chocolate Milk Light 500ml", description: "Leche con chocolate desnatada 500ml" },
@@ -186,8 +204,8 @@ export const cold_bev: MenuItem[] = [
     categoryId: "cold_bev",
     price: 2.50,
     translations: {
-      el: { name: "Κεφίρ", description: "" },
-      en: { name: "Kefir", description: "" },
+      el: { name: "Κεφίρ", description: "Δροσιστικό ρόφημα κεφίρ, πλούσιο σε ωφέλιμα προβιοτικά" },
+      en: { name: "Kefir", description: "Refreshing kefir drink, rich in beneficial probiotics" },
       de: { name: "Kefir", description: "Kefir" },
       fr: { name: "Kefir", description: "Kéfir" },
       es: { name: "Kefir", description: "Kéfir" },
@@ -201,8 +219,8 @@ export const cold_bev: MenuItem[] = [
     categoryId: "cold_bev",
     price: 2.50,
     translations: {
-      el: { name: "Κεφίρ με Μπανάνα, Βρώμη & Μέλι", description: "" },
-      en: { name: "Kefir with Banana, Oat & Honey", description: "" },
+      el: { name: "Κεφίρ με Μπανάνα, Βρώμη & Μέλι", description: "Θρεπτικό ρόφημα κεφίρ με φρέσκια μπανάνα, νιφάδες βρώμης και φυσικό μέλι" },
+      en: { name: "Kefir with Banana, Oat & Honey", description: "Nutritious kefir drink with fresh banana, oats, and natural honey" },
       de: { name: "Kefir with Banana, Oat & Honey", description: "Kefir mit Banane, Hafer & Honig" },
       fr: { name: "Kefir with Banana, Oat & Honey", description: "Kéfir à la banane, avoine et miel" },
       es: { name: "Kefir with Banana, Oat & Honey", description: "Kéfir con plátano, avena y miel" },
@@ -218,8 +236,8 @@ export const cold_bev: MenuItem[] = [
     hasStrawberry: true,
     hasCherry: true,
     translations: {
-      el: { name: "Κεφίρ με Φράουλα, Βύσσινο & Σμέουρο", description: "" },
-      en: { name: "Kefir with Strawberry, Dark Cherry & Raspberry", description: "" },
+      el: { name: "Κεφίρ με Φράουλα, Βύσσινο & Σμέουρο", description: "Φρουτένιο ρόφημα κεφίρ με μοναδικό συνδυασμό από φράουλα, βύσσινο και σμέουρο" },
+      en: { name: "Kefir with Strawberry, Dark Cherry & Raspberry", description: "Fruity kefir drink with a unique blend of strawberry, dark cherry, and raspberry" },
       de: { name: "Kefir with Strawberry, Dark Cherry & Raspberry", description: "Kefir mit Erdbeere, Schwarzkirsche & Himbeere" },
       fr: { name: "Kefir with Strawberry, Dark Cherry & Raspberry", description: "Kéfir à la fraise, griotte et framboise" },
       es: { name: "Kefir with Strawberry, Dark Cherry & Raspberry", description: "Kéfir con fresa, cereza negra y frambuesa" },
@@ -233,8 +251,8 @@ export const cold_bev: MenuItem[] = [
     categoryId: "cold_bev",
     price: 2.50,
     translations: {
-      el: { name: "Κεφίρ με Μάνγκο, Φρούτο του Πάθους & Τζίντζερ", description: "" },
-      en: { name: "Kefir with Mango, Passion Fruit & Ginger", description: "" },
+      el: { name: "Κεφίρ με Μάνγκο, Φρούτο του Πάθους & Τζίντζερ", description: "Εξωτικό ρόφημα κεφίρ με μάνγκο, φρούτο του πάθους και μια ελαφρώς πικάντικη νότα τζίντζερ" },
+      en: { name: "Kefir with Mango, Passion Fruit & Ginger", description: "Exotic kefir drink with mango, passion fruit, and a mildly spicy hint of ginger" },
       de: { name: "Kefir with Mango, Passion Fruit & Ginger", description: "Kefir mit Mango, Passionsfrucht & Ingwer" },
       fr: { name: "Kefir with Mango, Passion Fruit & Ginger", description: "Kéfir à la mangue, fruit de la passion et gingembre" },
       es: { name: "Kefir with Mango, Passion Fruit & Ginger", description: "Kéfir con mango, maracuyá y jengibre" },
@@ -248,8 +266,8 @@ export const cold_bev: MenuItem[] = [
     categoryId: "cold_bev",
     price: 2.50,
     translations: {
-      el: { name: "Αριάνι", description: "" },
-      en: { name: "Ayran", description: "" },
+      el: { name: "Αριάνι", description: "Παραδοσιακό, ελαφρώς αλατισμένο και άκρως δροσιστικό ρόφημα γιαουρτιού" },
+      en: { name: "Ayran", description: "Traditional, slightly salted and highly refreshing yogurt drink" },
       de: { name: "Ayran", description: "Ayran" },
       fr: { name: "Ayran", description: "Ayran" },
       es: { name: "Ayran", description: "Ayran" },

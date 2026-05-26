@@ -19,7 +19,6 @@ const uiTranslations = {
     glutenFree: "Χωρίς Γλουτένη",
     citrus: "Εσπεριδοειδή",
     strawberry: "Φράουλα",
-    cherry: "Κεράσι",
   },
   en: {
     search: "Search for items...",
@@ -32,7 +31,6 @@ const uiTranslations = {
     glutenFree: "Gluten Free",
     citrus: "Citrus Fruits",
     strawberry: "Strawberry",
-    cherry: "Cherry",
   },
   de: {
     search: "Artikel suchen...",
@@ -45,7 +43,6 @@ const uiTranslations = {
     glutenFree: "Glutenfrei",
     citrus: "Zitrusfrüchte",
     strawberry: "Erdbeere",
-    cherry: "Kirsche",
   },
   fr: {
     search: "Rechercher des articles...",
@@ -58,7 +55,6 @@ const uiTranslations = {
     glutenFree: "Sans Gluten",
     citrus: "Agrumes",
     strawberry: "Fraise",
-    cherry: "Cerise",
   },
   es: {
     search: "Buscar artículos...",
@@ -446,16 +442,6 @@ export default function MenuClient({
                           {item.hasCitrus && (
                             <span className="flex items-center gap-1 text-[10px] font-bold bg-yellow-100 text-yellow-700 px-2 py-1 rounded-md shadow-sm">
                               🍋 {ui.citrus}
-                            </span>
-                          )}
-                          {item.hasStrawberry && (
-                            <span className="flex items-center gap-1 text-[10px] font-bold bg-red-100 text-red-700 px-2 py-1 rounded-md shadow-sm">
-                              🍓 {ui.strawberry}
-                            </span>
-                          )}
-                          {item.hasCherry && (
-                            <span className="flex items-center gap-1 text-[10px] font-bold bg-purple-100 text-lila-700 px-2 py-1 rounded-md shadow-sm">
-                              🫐 {ui.cherry}
                             </span>
                           )}
                         </div>

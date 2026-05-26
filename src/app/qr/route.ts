@@ -2,6 +2,8 @@
 import { redirect } from 'next/navigation';
 import { NextRequest } from 'next/server';
 
+export const dynamic = "force-static";
+
 export async function GET(request: NextRequest) {
   /* ΕΔΩ ΕΙΝΑΙ ΟΛΗ Η ΜΑΓΕΙΑ!
     Όταν κάποιος σκανάρει το stand, ο browser του θα χτυπάει το: zucchero.gr/qr
