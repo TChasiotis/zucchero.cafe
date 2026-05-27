@@ -23,7 +23,8 @@ export default function QRCard({
           ? "box-border border border-dashed border-slate-300"
           : "shadow-2xl border border-slate-200"
       }`}
-      style={{ width: "10.5cm", height: "14.8cm", padding: "1.2cm 1cm" }}
+      // ΑΚΡΙΒΩΣ Α6 ΣΕ ΧΙΛΙΟΣΤΑ
+      style={{ width: "105mm", height: "148.5mm", padding: "12mm 10mm" }}
     >
       <img
         src="/images/logo/zucchero_logo.png"
@@ -36,8 +37,6 @@ export default function QRCard({
       </div>
 
       <div className="text-center w-full flex flex-col items-center gap-3">
-        {/* === ΠΥΡΗΝΙΚΗ ΛΥΣΗ ΓΙΑ ΤΙΣ ΓΡΑΜΜΕΣ === */}
-        {/* Χρησιμοποιούμε inline style, 2px πάχος και σκούρο γκρι για να μην το κρύψει ο Chrome */}
         <div className="flex items-center justify-center gap-2">
           <div
             style={{ width: "2.5rem", borderTop: "2px solid #94a3b8" }}
@@ -47,7 +46,6 @@ export default function QRCard({
             style={{ width: "2.5rem", borderTop: "2px solid #94a3b8" }}
           ></div>
         </div>
-        {/* ========================================================== */}
 
         <div className="flex flex-col gap-1.5">
           <h3 className="text-2xl font-extrabold uppercase tracking-tight text-black">
