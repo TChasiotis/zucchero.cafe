@@ -20,10 +20,10 @@ export const menuItems = sqliteTable("menu_items", {
   // Tags & Αλλεργιογόνα (Booleans - Στην SQLite αποθηκεύονται ως 0 ή 1)
   isPopular: integer("is_popular", { mode: "boolean" }).default(false),
   isVegan: integer("is_vegan", { mode: "boolean" }).default(false),
-  hasNuts: integer("has_nuts", { mode: "boolean" }).default(false),
-  hasStrawberry: integer("has_strawberry", { mode: "boolean" }).default(false),
-  hasCherry: integer("has_cherry", { mode: "boolean" }).default(false),
   isGlutenFree: integer("is_gluten_free", { mode: "boolean" }).default(false),
-  hasCitrus: integer("has_citrus", { mode: "boolean" }).default(false),
+  hasEgg: integer("has_egg", { mode: "boolean" }).default(false),
+  hasDairy: integer("has_dairy", { mode: "boolean" }).default(false),
+  hasNuts: integer("has_nuts", { mode: "boolean" }).default(false),
+  hasSoy: integer("has_soy", { mode: "boolean" }).default(false),
   isSoldOut: integer("is_sold_out", { mode: "boolean" }).default(false),
 });
