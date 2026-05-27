@@ -2,6 +2,8 @@ import { db } from "../../db/index";
 import { categories, menuItems } from "../../db/schema";
 import MenuClient from "./MenuClient";
 
+export const revalidate = 60;
+
 export default async function MenuPage() {
   const dbCategories = await db.select().from(categories);
   const dbMenuItems = await db.select().from(menuItems);
