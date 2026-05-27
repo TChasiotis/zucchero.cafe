@@ -2,7 +2,6 @@
 
 import QRCode from "react-qr-code";
 
-// Δέχεται το type (αν είναι menu ή wifi) και το isPrint (για να βάλει το διακεκομμένο περίγραμμα στην εκτύπωση)
 export default function QRCard({
   type,
   isPrint = false,
@@ -37,17 +36,18 @@ export default function QRCard({
       </div>
 
       <div className="text-center w-full flex flex-col items-center gap-3">
-        {/* === Διορθωμένο Διαχωριστικό - Πιο φιλικό στην εκτύπωση === */}
+        {/* === ΠΥΡΗΝΙΚΗ ΛΥΣΗ ΓΙΑ ΤΙΣ ΓΡΑΜΜΕΣ === */}
+        {/* Χρησιμοποιούμε inline style, 2px πάχος και σκούρο γκρι για να μην το κρύψει ο Chrome */}
         <div className="flex items-center justify-center gap-2">
-          {/* ΑΛΛΑΓΗ ΕΔΩ: h-px bg-slate-300 EGINE border-t border-slate-300 */}
-          <div className="border-t border-slate-300 w-10"></div>
-
-          <div className="text-slate-400 text-xs">◆</div>
-
-          {/* ΑΛΛΑΓΗ ΕΔΩ: h-px bg-slate-300 EGINE border-t border-slate-300 */}
-          <div className="border-t border-slate-300 w-10"></div>
+          <div
+            style={{ width: "2.5rem", borderTop: "2px solid #94a3b8" }}
+          ></div>
+          <div style={{ color: "#94a3b8", fontSize: "0.75rem" }}>◆</div>
+          <div
+            style={{ width: "2.5rem", borderTop: "2px solid #94a3b8" }}
+          ></div>
         </div>
-        {/* ==========================================================*/}
+        {/* ========================================================== */}
 
         <div className="flex flex-col gap-1.5">
           <h3 className="text-2xl font-extrabold uppercase tracking-tight text-black">
