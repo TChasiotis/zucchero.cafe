@@ -124,9 +124,9 @@ import { coffee } from "./menu/coffee";
 import { softDrinks } from "./menu/soft_drinks";
 import { juices } from "./menu/juices";
 import { cold_bev } from "./menu/cold_bev";
-/*import { hotDrinks } from "./menu/hot_drinks";
+import { hot_drinks } from "./menu/hot_drinks";
 import { giagiamas } from "./menu/giagiamas";
-import { alcohol } from "./menu/alcohol";*/
+import { alcohol } from "./menu/alcohol";
 
 // Η ΜΕΓΑΛΗ ΕΝΩΣΗ
 export const menuItems: MenuItem[] = [
@@ -145,7 +145,7 @@ export const menuItems: MenuItem[] = [
   ...softDrinks,
   ...juices,
   ...cold_bev,
-  /*...hotDrinks,
+  ...hot_drinks,
   ...giagiamas,
-  ...alcohol,*/
+  ...alcohol,
 ];

@@ -16,12 +16,12 @@ const uiTranslations = {
     perKg: "/ κιλό",
     perPortion: "/ μερίδα",
     rights: "Όλα τα δικαιώματα διατηρούνται",
-    vegan: "Vegan / Νηστισιμο",
-    nuts: "Ξηροι Καρποι",
-    glutenFree: "Χωρις Γλουτενη",
-    egg: "Αυγο",
-    dairy: "Γαλακτοκομικα",
-    soy: "Σογια",
+    vegan: "Vegan / Νηστίσιμο",
+    nuts: "Ξηροί Καρποί",
+    glutenFree: "Χωρίς Γλουτένη",
+    egg: "Αυγό",
+    dairy: "Γαλακτοκομικά",
+    soy: "Σογιά",
   },
   en: {
     search: "Search for items...",
@@ -292,7 +292,7 @@ export default function MenuClient({
           className={`flex overflow-x-auto hide-scrollbar p-3 gap-2 max-w-3xl mx-auto w-full transition-opacity duration-300 ${searchQuery ? "opacity-40 pointer-events-none" : "opacity-100"}`}
         >
           {categories
-            .filter((category) => !category.isNotAvailable) // <--- ΑΥΤΟ ΕΙΝΑΙ ΤΟ ΜΑΓΙΚΟ ΦΙΛΤΡΟ
+            .filter((category) => !category.isNotAvailable)
             .map((cat) => (
               <button
                 key={cat.id}
@@ -316,18 +316,22 @@ export default function MenuClient({
             className="flex flex-col gap-4"
           >
             {activeItems.filter((item) => {
-              // Κλασικός έλεγχος: αν είναι sold out, το κρύβουμε
               if (item.isSoldOut) return false;
 
-              // ΕΞΥΠΝΟΣ ΕΛΕΓΧΟΣ: Αν το παγωτό είναι εκτός εποχής, κρύψε και τα έξτρα του
               const isIceCreamHidden =
                 categories.find((c) => c.id === "ice_cream")?.isNotAvailable ===
                 true;
-              if (
-                isIceCreamHidden &&
-                (item.id === "coffee_extra_ice_cream" ||
-                  item.id === "siropiasta_extra_ice_cream")
-              ) {
+
+              const iceCreamDependentIds = [
+                "coffee_extra_ice_cream",
+                "siropiasta_extra_ice_cream",
+                "cold_bev_milkshake",
+                "cold_bev_slush",
+                "separator_milkshake",
+                "separator_slush",
+              ];
+
+              if (isIceCreamHidden && iceCreamDependentIds.includes(item.id)) {
                 return false;
               }
 
@@ -340,12 +344,22 @@ export default function MenuClient({
                   const isIceCreamHidden =
                     categories.find((c) => c.id === "ice_cream")
                       ?.isNotAvailable === true;
+
+                  const iceCreamDependentIds = [
+                    "coffee_extra_ice_cream",
+                    "siropiasta_extra_ice_cream",
+                    "cold_bev_milkshake",
+                    "cold_bev_slush",
+                    "separator_milkshake",
+                    "separator_slush",
+                  ];
+
                   if (
                     isIceCreamHidden &&
-                    (item.id === "coffee_extra_ice_cream" ||
-                      item.id === "siropiasta_extra_ice_cream")
-                  )
+                    iceCreamDependentIds.includes(item.id)
+                  ) {
                     return false;
+                  }
 
                   return true;
                 })
@@ -353,41 +367,38 @@ export default function MenuClient({
                   const isSeparator =
                     item.isSeparator || item.id.includes("separator");
 
-                  /* ----- ΕΞΥΠΝΟΣ ΕΛΕΓΧΟΣ ΓΙΑ "ΟΡΦΑΝΑ" ΔΙΑΧΩΡΙΣΤΙΚΑ ----- */
+                  /* ----- ΕΞΥΠΝΟΣ ΕΛΕΓΧΟΣ ΔΙΑΧΩΡΙΣΤΙΚΩΝ ----- */
                   if (isSeparator) {
-                    // 1. Αν το separator είναι το ΤΕΛΕΥΤΑΙΟ (δεν έχει μείνει τίποτα από κάτω), κρύβεται.
-                    if (index === arr.length - 1) return null;
-
-                    // 2. Αν το separator είναι το ΠΡΟΤΕΛΕΥΤΑΙΟ (μένει μόνο ΕΝΑ item από κάτω)
-                    if (index === arr.length - 2) {
-                      const nextItem = arr[index + 1];
-
-                      // Ελέγχουμε αν το 1 item που έμεινε είναι Πληροφορίες (info), Έξτρα (extra) ή Παγωτό (ice_cream)
-                      const isNextItemInfo =
-                        nextItem.id.includes("info") ||
-                        nextItem.id.includes("ice_cream") ||
-                        nextItem.id.includes("extra") ||
-                        (nextItem.hidePrice && nextItem.price === 0);
-
-                      // Αν ΔΕΝ είναι Πληροφορίες ή Έξτρα, κρύβουμε το separator
-                      if (!isNextItemInfo) {
-                        return null;
+                    let itemsInSection = [];
+                    for (let i = index + 1; i < arr.length; i++) {
+                      if (
+                        arr[i].isSeparator ||
+                        arr[i].id.includes("separator")
+                      ) {
+                        break;
                       }
+                      itemsInSection.push(arr[i]);
+                    }
+
+                    const hasInfoOrExtra = itemsInSection.some(
+                      (x) => x.hidePrice === true,
+                    );
+
+                    if (!hasInfoOrExtra && itemsInSection.length <= 1) {
+                      return null;
                     }
                   }
 
                   return isSeparator ? (
-                    /* ----- ΝΕΟ MINIMAL ΔΙΑΧΩΡΙΣΤΙΚΟ ----- */
                     <div
                       key={item.id}
-                      className="w-2/3 mx-auto my-5 rounded-full shadow-inner" // Αλλάξαμε το my-10 σε my-5
+                      className="w-2/3 mx-auto my-5 rounded-full shadow-inner"
                       style={{
                         height: "5px",
                         backgroundColor: "rgb(151, 220, 245)",
                       }}
                     />
                   ) : (
-                    /* ----- UI ΚΑΝΟΝΙΚΟΥ ΠΡΟΪΟΝΤΟΣ ----- */
                     <div
                       key={item.id}
                       className="bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-sm border border-white/50 flex flex-col hover:shadow-md transition-shadow"
