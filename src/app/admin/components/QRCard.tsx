@@ -9,7 +9,7 @@ export default function QRCard({
   type: "menu" | "wifi";
   isPrint?: boolean;
 }) {
-  const menuLink = "https://zucchero-cafe.pages.dev/menu/welcome";
+  const menuLink = "https://zucchero.gr/menu/welcome";
   const wifiString = "WIFI:S:ZUCCHERO_GUEST;T:WPA;P:2310215575;;";
 
   const value = type === "menu" ? menuLink : wifiString;

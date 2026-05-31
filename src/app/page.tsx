@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+// Προσθήκη useScroll και useSpring για προχωρημένα animations
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import {
   MapPin,
   Phone,
@@ -17,7 +18,6 @@ import {
   Heart,
 } from "lucide-react";
 
-// --- ΡΥΘΜΙΣΕΙΣ ΓΛΩΣΣΩΝ ---
 type LangCode = "el" | "en" | "de" | "fr" | "es" | "sr" | "bg" | "ro";
 
 const availableLanguages = [
@@ -392,18 +392,35 @@ export default function HomePage() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+  // DEV FLEX 1: Scroll Progress Bar!
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   useEffect(() => setMounted(true), []);
 
   const ui = translations[lang];
   const currentLangObj =
     availableLanguages.find((l) => l.code === lang) || availableLanguages[0];
 
+  // DEV FLEX 2: Fade Up Variant με once: false! (Επαναλαμβάνεται ΚΑΘΕ ΦΟΡΑ που σκρολάρεις)
   const fadeUpVariant: any = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
+  // DEV FLEX 3: Infinite floating animation για τις κάρτες
+  const floatVariant: any = {
+    animate: {
+      y: [0, -10, 0],
+      transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
     },
   };
 
@@ -411,8 +428,14 @@ export default function HomePage() {
 
   return (
     <div className="relative min-h-screen bg-slate-900 font-sans selection:bg-[#97dcf5] selection:text-slate-900 overflow-x-hidden scroll-smooth">
+      {/* ProgressBar στο πάνω μέρος της οθόνης */}
+      <motion.div
+        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 h-1.5 bg-[#97dcf5] origin-left z-[60]"
+      />
+
       {/* --- STICKY HEADER --- */}
-      <header className="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm transition-all">
+      <header className="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm transition-all mt-1.5">
         <div className="max-w-6xl mx-auto px-4 h-16 md:h-20 flex items-center justify-between">
           {/* DRAWER HAMBURGER & LOGO (Left) */}
           <div className="flex items-center">
@@ -653,16 +676,17 @@ export default function HomePage() {
 
       {/* --- SLIDING CONTENT WRAPPER --- */}
       <div className="relative z-20 bg-white rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-20px_50px_rgba(0,0,0,0.4)] overflow-hidden">
-        {/* --- 2. SPECIALTIES SECTION (ΝΕΟ ΣΤΟΙΧΕΙΟ) --- */}
+        {/* --- 2. SPECIALTIES SECTION (WITH INFINITE FLOAT & FADE IN/OUT) --- */}
         <section
           id="specialties"
-          className="py-20 md:py-32 px-4 bg-white scroll-mt-10"
+          className="py-20 md:py-32 px-4 bg-white scroll-mt-10 overflow-hidden"
         >
           <div className="max-w-6xl mx-auto">
+            {/* once: false -> Επαναλαμβάνεται ΠΑΝΤΑ! */}
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeUpVariant}
               className="text-center mb-16"
             >
@@ -676,65 +700,96 @@ export default function HomePage() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.2 }}
                 variants={fadeUpVariant}
-                className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-14 h-14 bg-pink-100 text-pink-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Heart size={28} />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-3">
-                  {ui.spec1}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">{ui.spec1Desc}</p>
+                <motion.div
+                  variants={floatVariant}
+                  animate="animate"
+                  className="h-full bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div className="w-14 h-14 bg-pink-100 text-pink-600 rounded-2xl flex items-center justify-center mb-6">
+                    <Heart size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-800 mb-3">
+                    {ui.spec1}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {ui.spec1Desc}
+                  </p>
+                </motion.div>
               </motion.div>
 
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.2 }}
                 variants={fadeUpVariant}
-                className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Sparkles size={28} />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-3">
-                  {ui.spec2}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">{ui.spec2Desc}</p>
+                <motion.div
+                  variants={floatVariant}
+                  animate="animate"
+                  style={{ animationDelay: "1s" }}
+                  className="h-full bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div className="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6">
+                    <Sparkles size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-800 mb-3">
+                    {ui.spec2}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {ui.spec2Desc}
+                  </p>
+                </motion.div>
               </motion.div>
 
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.2 }}
                 variants={fadeUpVariant}
-                className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Star size={28} />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-3">
-                  {ui.spec3}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">{ui.spec3Desc}</p>
+                <motion.div
+                  variants={floatVariant}
+                  animate="animate"
+                  style={{ animationDelay: "2s" }}
+                  className="h-full bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div className="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6">
+                    <Star size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-800 mb-3">
+                    {ui.spec3}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {ui.spec3Desc}
+                  </p>
+                </motion.div>
               </motion.div>
 
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.2 }}
                 variants={fadeUpVariant}
-                className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-14 h-14 bg-stone-200 text-stone-700 rounded-2xl flex items-center justify-center mb-6">
-                  <Coffee size={28} />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-3">
-                  {ui.spec4}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">{ui.spec4Desc}</p>
+                <motion.div
+                  variants={floatVariant}
+                  animate="animate"
+                  style={{ animationDelay: "3s" }}
+                  className="h-full bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div className="w-14 h-14 bg-stone-200 text-stone-700 rounded-2xl flex items-center justify-center mb-6">
+                    <Coffee size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-800 mb-3">
+                    {ui.spec4}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {ui.spec4Desc}
+                  </p>
+                </motion.div>
               </motion.div>
             </div>
           </div>
@@ -743,12 +798,12 @@ export default function HomePage() {
         {/* --- 3. THE STICKY SCROLL STORY SECTION --- */}
         <section
           id="story"
-          className="py-20 md:py-32 px-4 max-w-6xl mx-auto border-t border-slate-100 scroll-mt-10"
+          className="py-20 md:py-32 px-4 max-w-6xl mx-auto border-t border-slate-100 scroll-mt-10 overflow-hidden"
         >
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, amount: 0.5 }}
             variants={fadeUpVariant}
             className="text-center mb-16 md:mb-24"
           >
@@ -772,7 +827,7 @@ export default function HomePage() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: false, amount: 0.5 }}
                 variants={fadeUpVariant}
               >
                 <h3 className="text-2xl font-bold text-slate-800 mb-4">
@@ -795,7 +850,7 @@ export default function HomePage() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: false, amount: 0.5 }}
                 variants={fadeUpVariant}
               >
                 <h3 className="text-2xl font-bold text-slate-800 mb-4">
@@ -809,7 +864,7 @@ export default function HomePage() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: false, amount: 0.5 }}
                 variants={fadeUpVariant}
               >
                 <h3 className="text-2xl font-bold text-slate-800 mb-4">
@@ -826,13 +881,13 @@ export default function HomePage() {
         {/* --- 4. ΕΠΙΚΟΙΝΩΝΙΑ & ΤΟΠΟΘΕΣΙΑ --- */}
         <section
           id="contact"
-          className="py-20 md:py-24 px-4 bg-slate-50 border-t border-slate-200 scroll-mt-10"
+          className="py-20 md:py-24 px-4 bg-slate-50 border-t border-slate-200 scroll-mt-10 overflow-hidden"
         >
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.2 }}
               variants={fadeUpVariant}
               className="grid grid-cols-1 lg:grid-cols-2 gap-8"
             >
@@ -850,7 +905,9 @@ export default function HomePage() {
                         {ui.addressTitle}
                       </h4>
                       <p className="text-slate-600 text-sm md:text-base">
-                        {ui.addressData}
+                        {lang === "el"
+                          ? "Πλατεία Αγίων Αναργύρων 2, 54634, Θεσσαλονίκη, Ελλάδα"
+                          : ui.addressData}
                       </p>
                     </div>
                   </div>
@@ -931,7 +988,7 @@ export default function HomePage() {
               <div className="flex flex-col gap-6">
                 <div className="relative w-full h-[300px] md:h-full min-h-[300px] rounded-[2rem] overflow-hidden shadow-sm border border-slate-200 bg-slate-200">
                   <iframe
-                    src="https://maps.google.com/maps?q=Zucchero,%20Plateia%20Agion%20Anargiron%202,%20Thessaloniki&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.3551571477755!2d22.92987541170701!3d40.64408107128639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a8394d23e3d2c5%3A0xc9d2c9143d2b5504!2zWnVjY2hlcm8gWmFjaGFyb3BsYXN0ZcOtbw!5e0!3m2!1sen!2sgr!4v1716301389803!5m2!1sen!2sgr"
                     className="absolute top-0 left-0 w-full h-full border-0"
                     allowFullScreen
                     loading="lazy"
@@ -949,12 +1006,14 @@ export default function HomePage() {
                     <h4 className="font-bold text-slate-800 text-base md:text-lg mb-1">
                       {ui.rating}
                     </h4>
+
                     <div className="flex text-yellow-400">
                       {[1, 2, 3, 4, 5].map((i) => (
                         <Star key={i} fill="currentColor" size={16} />
                       ))}
                     </div>
                   </div>
+
                   <div className="bg-slate-100 p-3 rounded-full text-slate-600">
                     <ChevronRight size={20} />
                   </div>
