@@ -6,6 +6,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Coca Cola Zero", description: "Απολαυστική, δροσιστική γεύση χωρίς ζάχαρη και θερμίδες" },
       en: { name: "Coca Cola Zero", description: "Refreshing classic taste with zero sugar and zero calories" },
@@ -22,6 +24,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Πορτοκαλάδα", description: "Δροσερή πορτοκαλάδα με πλούσιο άρωμα και φυσαλίδες" },
       en: { name: "Orangeade", description: "Refreshing sparkling orangeade with vibrant citrus flavor" },
@@ -38,6 +42,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Πορτοκαλάδα (χωρίς ανθρακικό)", description: "Δροσερή πορτοκαλάδα με πλούσιο άρωμα, χωρίς ανθρακικό" },
       en: { name: "Orangeade (non-carbonated)", description: "Refreshing orangeade with vibrant citrus flavor, without carbonation" },
@@ -54,6 +60,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Λεμονάδα", description: "Κλασική, δροσιστική λεμονάδα με τέλεια ισορροπία γλυκού και ξινού" },
       en: { name: "Lemonade", description: "Classic, refreshing lemonade with a perfect sweet and sour balance" },
@@ -70,6 +78,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Σόδα", description: "Απλή, κλασική και απόλυτα δροσιστική με πλούσιο ανθρακικό" },
       en: { name: "Sparkling Water", description: "Crisp and highly refreshing with lively carbonation" },
@@ -86,6 +96,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Σόδα με Λεμόνι & Λάιμ", description: "Δροσερή σόδα με μια αναζωογονητική πινελιά από εσπεριδοειδή" },
       en: { name: "Sparkling Water with Lemon & Lime", description: "Crisp sparkling water with an invigorating citrus twist" },
@@ -102,6 +114,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Σόδα με Μαστίχα", description: "Παραδοσιακό άρωμα Χιώτικης μαστίχας σε μια δροσιστική σόδα" },
       en: { name: "Sparkling Water with Mastic", description: "Crisp sparkling water infused with the unique aroma of Chios mastic" },
@@ -118,6 +132,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Ice Tea Ροδάκινο", description: "Παγωμένο τσάι με γλυκιά και φρουτώδη γεύση ροδάκινου" },
       en: { name: "Peach Ice Tea", description: "Iced tea with a sweet and fruity peach flavor" },
@@ -134,6 +150,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Ice Tea Λεμόνι", description: "Αναζωογονητικό παγωμένο τσάι με έντονη γεύση λεμονιού" },
       en: { name: "Lemon Ice Tea", description: "Invigorating iced tea with a zesty lemon flavor" },
@@ -150,6 +168,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Ξινόνερο Φλώρινας", description: "Φυσικώς ανθρακούχο φυσικό μεταλλικό νερό με μοναδική γεύση" },
       en: { name: "Xinonero Florinas", description: "Naturally sparkling mineral water with a distinct, refreshing taste" },
@@ -166,6 +186,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Σόδα Γκρέιπφρουτ", description: "Έντονη, δροσιστική γεύση γκρέιπφρουτ με μια ευχάριστη πικράδα" },
       en: { name: "Grapefruit Soda", description: "Zesty and refreshing grapefruit flavor with a pleasant bitter note" },
@@ -182,6 +204,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Σόδα Λάιμ & Τζίντζερ", description: "Εκρηκτικός συνδυασμός από δροσερό λάιμ και τζίντζερ" },
       en: { name: "Lime & Ginger Soda", description: "Explosive combination of zesty lime and ginger" },
@@ -198,6 +222,8 @@ export const softDrinks: MenuItem[] = [
     categoryId: "soft_drinks",
     price: 2.50,
     isSoldOut: false,
+    isVegan: true,
+    isGlutenFree: true,
     translations: {
       el: { name: "Σόδα Ρόδι & Κράνμπερι", description: "Φρουτώδης σόδα με ελαφρώς όξινη, αναζωογονητική γεύση" },
       en: { name: "Pomegranate & Cranberry Soda", description: "Fruity soda with a slightly tart, revitalizing taste" },

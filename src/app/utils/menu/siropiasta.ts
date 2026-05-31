@@ -13,7 +13,7 @@ export const siropiasta: MenuItem[] = [
       fr: { name: "ℹ️ Informations utiles", description: "Des frais de service supplémentaires de +0,50 € s'appliquent aux produits vendus au kilogramme." },
       es: { name: "ℹ️ Información útil", description: "Se aplica un cargo de servicio adicional de +0,50 € a los productos vendidos por kilógramo." },
       sr: { name: "ℹ️ Korisne informacije", description: "Primenjuje se dodatna doplata za uslugu od +0.50€ za proizvode koji se prodaju po kilogramu." },
-      bg: { name: "ℹ️ Полезна информация", description: "Удържа се допълнителна такса за обслужване από +0.50€ за продукти, продавани на килограм." },
+      bg: { name: "ℹ️ Полезна информация", description: "Удържа се допълнителна такса за обслужване от +0.50€ за продукти, продавани на килограм." },
       ro: { name: "ℹ️ Informații utile", description: "Se aplică o taxă suplimentară de servire de +0.50€ pentru produsele vândute la kilogram." }
     }
   },
@@ -32,6 +32,8 @@ export const siropiasta: MenuItem[] = [
     price: 14.00,
     unit: "kg",
     hasNuts: true,
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Μπακλαβάς", description: "Σιροπιαστό φύλλο με στρώσεις καρυδιού" },
       en: { name: "Baklava", description: "Syrup-soaked phyllo pastry with walnut layers" },
@@ -48,6 +50,8 @@ export const siropiasta: MenuItem[] = [
     categoryId: "siropiasta",
     price: 14.00,
     unit: "kg",
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Γαλακτομπούρεκο", description: "Πίτα με κρέμα και φύλλο, περιχυμένη με σιρόπι" },
       en: { name: "Galaktoboureko", description: "Custard pie with phyllo pastry, covered in syrup" },
@@ -65,6 +69,8 @@ export const siropiasta: MenuItem[] = [
     price: 14.00,
     unit: "kg",
     hasNuts: true,
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Σαραγλί", description: "Ρολά από φύλλο με ξηρούς καρπούς και σιρόπι" },
       en: { name: "Saragli", description: "Phyllo rolls with nuts and syrup" },
@@ -82,6 +88,8 @@ export const siropiasta: MenuItem[] = [
     price: 14.00,
     unit: "kg",
     hasNuts: true,
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Γιαννιώτικο", description: "Παραδοσιακό γλυκό από τα Ιωάννινα με φύλλο, καταΐφι και καρύδια" },
       en: { name: "Gianniotiko", description: "Traditional dessert from Ioannina with phyllo, kataifi, and walnuts" },
@@ -99,6 +107,8 @@ export const siropiasta: MenuItem[] = [
     price: 14.00,
     unit: "kg",
     hasNuts: true,
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Κανταΐφι", description: "Γλυκό από τρίμμα φύλλου, με ξηρούς καρπούς και σιρόπι" },
       en: { name: "Kataifi", description: "Shredded phyllo dessert with nuts and syrup" },
@@ -115,6 +125,7 @@ export const siropiasta: MenuItem[] = [
     categoryId: "siropiasta",
     price: 14.00,
     unit: "kg",
+    hasDairy: true,
     translations: {
       el: { name: "Κουρκουμπίνι", description: "Μικρές μπουκιές από φύλλο, σιροπιασμένες" },
       en: { name: "Kourkoubini", description: "Small syrup-soaked phyllo bites" },
@@ -131,6 +142,8 @@ export const siropiasta: MenuItem[] = [
     categoryId: "siropiasta",
     price: 14.00,
     unit: "kg",
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Τουλουμπάκι", description: "Μικρές τηγανητές τουλούμπες, με σιρόπι" },
       en: { name: "Touloumbaki", description: "Small tulumba fritters soaked in syrup" },
@@ -147,6 +160,9 @@ export const siropiasta: MenuItem[] = [
     categoryId: "siropiasta",
     price: 14.00,
     unit: "kg",
+    hasDairy: true,
+    hasEgg: true,
+    hasSoy: true,
     translations: {
       el: { name: "Φωλιά με Σοκολάτα", description: "Φύλλο σε σχήμα φωλιάς, γεμισμένο με σοκολάτα" },
       en: { name: "Chocolate Nest", description: "Phyllo nest filled with chocolate" },
@@ -163,6 +179,8 @@ export const siropiasta: MenuItem[] = [
     categoryId: "siropiasta",
     price: 14.00,
     unit: "kg",
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Φωλιά με Κρέμα", description: "Φύλλο σε σχήμα φωλιάς, γεμισμένο με κρέμα" },
       en: { name: "Cream Nest", description: "Phyllo nest filled with cream" },
@@ -179,6 +197,8 @@ export const siropiasta: MenuItem[] = [
     categoryId: "siropiasta",
     price: 14.00,
     unit: "kg",
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Φωλιά με Βύσσινο", description: "Φύλλο σε σχήμα φωλιάς, γεμισμένο με βύσσινα" },
       en: { name: "Sour Cherry Nest", description: "Phyllo nest filled with sour cherries" },
@@ -195,6 +215,8 @@ export const siropiasta: MenuItem[] = [
     categoryId: "siropiasta",
     price: 15.00,
     unit: "kg",
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Τρίγωνο Πανοράματος", description: "Παραδοσιακό τρίγωνο γλυκό από το Πανόραμα, με γέμιση κρέμας πατισερί" },
       en: { name: "Trigono Panoramatos", description: "Traditional triangle-shaped dessert from Panorama, filled with patisserie cream" },
@@ -220,6 +242,8 @@ export const siropiasta: MenuItem[] = [
     categoryId: "siropiasta",
     price: 3.50,
     isSoldOut: false,
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Ρεβανί", description: "Κέικ με σιμιγδάλι, εμποτισμένο με σιρόπι" },
       en: { name: "Revani", description: "Semolina sponge cake soaked in syrup" },
@@ -236,7 +260,8 @@ export const siropiasta: MenuItem[] = [
     categoryId: "siropiasta",
     price: 3.50,
     isSoldOut: false,
-    hasNuts: true,   
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Πορτοκαλόπιτα", description: "Πίτα με φύλλο και πορτοκάλι, σιροπιασμένη" },
       en: { name: "Portokalopita", description: "Orange phyllo cake soaked in syrup" },
@@ -254,6 +279,8 @@ export const siropiasta: MenuItem[] = [
     price: 3.50,
     isSoldOut: false,
     hasNuts: true,
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Καρυδόπιτα", description: "Κέικ με καρύδια και σιρόπι" },
       en: { name: "Karidopita", description: "Walnut cake soaked in syrup" },
@@ -271,6 +298,8 @@ export const siropiasta: MenuItem[] = [
     price: 4.00,
     isSoldOut: false,
     hasNuts: true,
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Εκμέκ Κανταΐφι", description: "Καταΐφι με στρώση κρέμας και σιρόπι" },
       en: { name: "Ekmek Kataifi", description: "Kataifi pastry with custard and syrup" },
@@ -278,7 +307,7 @@ export const siropiasta: MenuItem[] = [
       fr: { name: "Ekmek Kataifi", description: "Ekmek Kataifi: Pâtisserie kadaïf avec couche de crème et sirop" },
       es: { name: "Ekmek Kataifi", description: "Ekmek Kataifi: Pastel de kataifi con capa de crema y almíbar" },
       sr: { name: "Ekmek Kataifi", description: "Ekmek Kataifi: Kadaif sa slojem krema i sirupom" },
-      bg: { name: "Ekmek Kataifi", description: "Екмек Кадаиф: Кадаиф със слой крем и сироп" },
+      bg: { name: "Екмек Кадаиф", description: "Екмек Кадаиф: Кадаиф със слой крем и сироп" },
       ro: { name: "Ekmek Kataifi", description: "Ekmek Kataifi: Produse de patiserie cataif cu strat de cremă și sirop" }
     },
   },
@@ -287,6 +316,8 @@ export const siropiasta: MenuItem[] = [
     categoryId: "siropiasta",
     price: 4.00,
     isSoldOut: false,
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Εκμέκ Ρεβανί", description: "Ρεβανί με στρώση κρέμας και σιρόπι" },
       en: { name: "Ekmek Revani", description: "Revani sponge cake layered with custard and syrup" },
@@ -294,7 +325,7 @@ export const siropiasta: MenuItem[] = [
       fr: { name: "Ekmek Revani", description: "Ekmek Revani: Gâteau de semoule (Revani) avec couche de crème et sirop" },
       es: { name: "Ekmek Revani", description: "Ekmek Revani: Bizcocho de sémola (Revani) en capas con crema y almíbar" },
       sr: { name: "Ekmek Revani", description: "Ekmek Revani: Kolač od griza (Revani) sa slojem krema i sirupom" },
-      bg: { name: "Ekmek Revani", description: "Екмек Реване: Ревене (грис кекс) със слой крем и сироп" },
+      bg: { name: "Екмек Реване", description: "Екмек Реване: Ревене (грис кекс) със слой крем и сироп" },
       ro: { name: "Ekmek Revani", description: "Ekmek Revani: Prăjitură din griș (Revani) cu strat de cremă și sirop" }
     },
   },
@@ -312,6 +343,8 @@ export const siropiasta: MenuItem[] = [
     categoryId: "siropiasta",
     price: 2.00,
     isSoldOut: false,
+    hasDairy: true,
+    hasEgg: true,
     translations: {
       el: { name: "Μπάλα Παγωτό (Στο γλυκό)", description: "" },
       en: { name: "Ice Cream Scoop (With dessert)", description: "" },
