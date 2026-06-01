@@ -86,7 +86,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "ice_cream_stick_cocoa",
     categoryId: "ice_cream",
-    price: 1.50,
+    price: 1.20,
     hasDairy: true,
     isGlutenFree: true,
     translations: {
@@ -103,7 +103,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "ice_cream_stick_vanilla",
     categoryId: "ice_cream",
-    price: 1.50,
+    price: 1.20,
     hasDairy: true,
     isGlutenFree: true,
     translations: {
@@ -120,7 +120,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "ice_cream_cone_cocoa",
     categoryId: "ice_cream",
-    price: 1.50,
+    price: 1.30,
     hasDairy: true,
     translations: {
       el: { name: "Παγωτίνι Χωνάκι Κακάο", description: "Τραγανό μίνι χωνάκι με παγωτό κακάο" },
@@ -136,7 +136,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "ice_cream_cone_vanilla",
     categoryId: "ice_cream",
-    price: 1.50,
+    price: 1.30,
     hasDairy: true,
     translations: {
       el: { name: "Παγωτίνι Χωνάκι Βανίλια", description: "Τραγανό μίνι χωνάκι με παγωτό βανίλια" },
@@ -152,7 +152,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "ice_cream_cone_lotus",
     categoryId: "ice_cream",
-    price: 1.50,
+    price: 1.30,
     hasDairy: true,
     translations: {
       el: { name: "Παγωτίνι Χωνάκι Lotus", description: "Τραγανό μίνι χωνάκι με παγωτό γεύσης Lotus Biscoff" },
@@ -168,7 +168,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "ice_cream_stick_strawberry",
     categoryId: "ice_cream",
-    price: 1.50,
+    price: 1.20,
     hasDairy: true,
     isGlutenFree: true,
     translations: {
@@ -185,7 +185,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "ice_cream_cone_strawberry",
     categoryId: "ice_cream",
-    price: 1.50,
+    price: 1.30,
     hasDairy: true,
     translations: {
       el: { name: "Παγωτίνι Χωνάκι Φράουλα", description: "Τραγανό μίνι χωνάκι με παγωτό φράουλα" },
@@ -201,7 +201,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "ice_cream_stick_banana",
     categoryId: "ice_cream",
-    price: 1.50,
+    price: 1.20,
     hasDairy: true,
     isGlutenFree: true,
     translations: {
@@ -218,7 +218,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "ice_cream_stick_snickers",
     categoryId: "ice_cream",
-    price: 1.50,
+    price: 1.20,
     hasDairy: true,
     hasNuts: true,
     isGlutenFree: true,
@@ -236,7 +236,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "ice_cream_sandwich_cream",
     categoryId: "ice_cream",
-    price: 1.50,
+    price: 1.00,
     hasDairy: true,
     translations: {
       el: { name: "Παγωτίνι Σάντουιτς Κρέμα", description: "Μίνι παγωτό κρέμα βανίλια ανάμεσα σε δύο μαλακά μπισκότα" },
@@ -252,7 +252,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "ice_cream_sandwich_choco",
     categoryId: "ice_cream",
-    price: 1.50,
+    price: 1.20,
     hasDairy: true,
     translations: {
       el: { name: "Παγωτίνι Σάντουιτς Κρέμα Σοκολάτα", description: "Μίνι παγωτό κρέμα και σοκολάτα ανάμεσα σε δύο μαλακά μπισκότα" },
@@ -268,7 +268,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "ice_cream_sandwich_lotus",
     categoryId: "ice_cream",
-    price: 1.50,
+    price: 1.00,
     hasDairy: true,
     translations: {
       el: { name: "Παγωτίνι Σάντουιτς Lotus", description: "Μίνι παγωτό με γεύση Lotus Biscoff ανάμεσα σε μαλακά μπισκότα" },
@@ -310,7 +310,7 @@ export const iceCream: MenuItem[] = [
   {
     id: "mini_ice_cream_kg",
     categoryId: "ice_cream",
-    price: 15.00,
+    price: 16.00,
     unit: "kg",
     isSoldOut: false,
     translations: {
