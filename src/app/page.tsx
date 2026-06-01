@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-// Προσθήκη useScroll και useSpring για προχωρημένα animations
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import {
   MapPin,
@@ -406,9 +405,13 @@ export default function HomePage() {
   const currentLangObj =
     availableLanguages.find((l) => l.code === lang) || availableLanguages[0];
 
-  // DEV FLEX 2: Fade Up Variant με once: false! (Επαναλαμβάνεται ΚΑΘΕ ΦΟΡΑ που σκρολάρεις)
+  // DEV FLEX 2: Fade In / Fade Out - Μπαίνει και βγαίνει ομαλά
   const fadeUpVariant: any = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: {
+      opacity: 0,
+      y: 50,
+      transition: { duration: 0.4, ease: "easeIn" },
+    },
     visible: {
       opacity: 1,
       y: 0,
@@ -988,7 +991,7 @@ export default function HomePage() {
               <div className="flex flex-col gap-6">
                 <div className="relative w-full h-[300px] md:h-full min-h-[300px] rounded-[2rem] overflow-hidden shadow-sm border border-slate-200 bg-slate-200">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.3551571477755!2d22.92987541170701!3d40.64408107128639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a8394d23e3d2c5%3A0xc9d2c9143d2b5504!2zWnVjY2hlcm8gWmFjaGFyb3BsYXN0ZcOtbw!5e0!3m2!1sen!2sgr!4v1716301389803!5m2!1sen!2sgr"
+                    src="https://maps.google.com/maps?q=Zucchero%20%CE%96%CE%B1%CF%87%CE%B1%CF%81%CE%BF%CF%80%CE%BB%CE%B1%CF%83%CF%84%CE%B5%CE%AF%CE%BF,%20Thessaloniki&t=&z=16&ie=UTF8&iwloc=&output=embed"
                     className="absolute top-0 left-0 w-full h-full border-0"
                     allowFullScreen
                     loading="lazy"
