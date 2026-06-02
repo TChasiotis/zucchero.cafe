@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import { db } from "../../../db/index"; 
 import { categories, menuItems } from "../../../db/schema";
 
+export const runtime = 'edge';
+
 export async function GET() {
   try {
     // 1. Τραβάμε όλες τις κατηγορίες από την Turso
