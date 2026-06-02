@@ -9,6 +9,8 @@ import {
   ChevronDown,
   ShieldAlert,
   FileText,
+  CreditCard,
+  AlertTriangle,
   ChevronRight,
 } from "lucide-react";
 
@@ -31,107 +33,148 @@ const availableLanguages = [
 
 const translations: Record<LangCode, any> = {
   el: {
-    backHome: "Επιστροφή στην Αρχική",
-    title: "Νομικές Πληροφορίες & Αλλεργιογόνα",
+    backHome: "Επιστροφή",
+    title: "Νομικές Πληροφορίες",
     allergensTitle: "Αλλεργιογόνα & Δυσανεξίες",
     allergensText:
-      "Για πληροφορίες σχετικά με την ύπαρξη ΑΛΛΕΡΓΙΟΓΟΝΩΝ ΣΥΣΤΑΤΙΚΩΝ ή ΟΥΣΙΩΝ που προκαλούν ΔΥΣΑΝΕΞΙΕΣ στα προσφερόμενα είδη, παρακαλούμε απευθυνθείτε στο προσωπικό της επιχείρησης.",
+      "Για πληροφορίες σχετικά με την ύπαρξη ΑΛΛΕΡΓΙΟΓΟΝΩΝ ΣΥΣΤΑΤΙΚΩΝ ή ΟΥΣΙΩΝ που προκαλούν ΔΥΣΑΝΕΞΙΕΣ στα προσφερόμενα είδη, παρακαλούμε απευθυνθείτε στο προσωπικό.",
+    allergenListTitle: "Κατάλογος Αλλεργιογόνων (Καν. ΕΕ 1169/2011)",
+    allergenListText:
+      "Ενημερώνουμε τους πελάτες μας ότι τα προϊόντα μας ενδέχεται να περιέχουν ή να έχουν έρθει σε επαφή με: 1. Δημητριακά (γλουτένη), 2. Καρκινοειδή, 3. Αυγά, 4. Ψάρια, 5. Αραχίδες (φιστίκια), και τα παράγωγά τους.",
     receiptTitle: "Νόμιμο Παραστατικό",
     receiptText:
       "Ο καταναλωτής δεν έχει υποχρέωση να πληρώσει εάν δεν λάβει το νόμιμο παραστατικό στοιχείο (απόδειξη - τιμολόγιο).",
+    posTitle: "Τερματικό POS",
+    posText:
+      "Η επιχείρηση διαθέτει εγκεκριμένο τερματικό αποδοχής καρτών (POS) βάσει Ν.3862/10 & Ν.4440/16.",
     dev: "Κατασκευή Ιστοσελίδας:",
-    legal: "Νομικά & Αλλεργιογόνα",
+    legal: "Νομικά",
     menu: "Το Μενού",
   },
   en: {
-    backHome: "Back to Home",
-    title: "Legal Information & Allergens",
+    backHome: "Back",
+    title: "Legal Information",
     allergensTitle: "Allergens & Intolerances",
     allergensText:
-      "For questions or concerns regarding FOOD INTOLERANCE or FOOD ALLERGIES, don't hesitate to ask our personnel about the products provided.",
+      "For questions regarding FOOD INTOLERANCE or FOOD ALLERGIES, don't hesitate to ask our personnel.",
+    allergenListTitle: "Allergen List (EU Reg. 1169/2011)",
+    allergenListText:
+      "Please be advised that our products may contain or have come in contact with: 1. Cereals (gluten), 2. Crustaceans, 3. Eggs, 4. Fish, 5. Peanuts, and products thereof.",
     receiptTitle: "Legal Receipt",
     receiptText:
       "Consumer is not obliged to pay if the receipt has not been given.",
+    posTitle: "POS Terminal",
+    posText:
+      "The establishment is equipped with an approved POS card terminal.",
     dev: "Web Development:",
-    legal: "Legal & Allergens",
+    legal: "Legal",
     menu: "Menu",
   },
   de: {
-    backHome: "Zurück zur Startseite",
-    title: "Rechtliche Informationen & Allergene",
+    backHome: "Zurück",
+    title: "Rechtliche Informationen",
     allergensTitle: "Allergene & Unverträglichkeiten",
     allergensText:
-      "Bei Fragen oder Bedenken bezüglich LEBENSMITTELUNVERTRÄGLICHKEITEN oder ALLERGIEN wenden Sie sich bitte an unser Personal.",
+      "Bei Fragen zu LEBENSMITTELUNVERTRÄGLICHKEITEN oder ALLERGIEN wenden Sie sich bitte an unser Personal.",
+    allergenListTitle: "Allergenliste (EU-Verordnung 1169/2011)",
+    allergenListText:
+      "Unsere Produkte können enthalten: 1. Getreide (Gluten), 2. Krebstiere, 3. Eier, 4. Fisch, 5. Erdnüsse und daraus gewonnene Erzeugnisse.",
     receiptTitle: "Quittung",
     receiptText:
       "Der Verbraucher ist nicht verpflichtet zu zahlen, wenn keine Quittung ausgestellt wurde.",
+    posTitle: "POS-Terminal",
+    posText: "Der Betrieb verfügt über ein zugelassenes POS-Kartenterminal.",
     dev: "Webentwicklung:",
-    legal: "Rechtliches & Allergene",
+    legal: "Rechtliches",
     menu: "Menü",
   },
   fr: {
-    backHome: "Retour à l'accueil",
-    title: "Informations Légales & Allergènes",
+    backHome: "Retour",
+    title: "Informations Légales",
     allergensTitle: "Allergènes et Intolérances",
     allergensText:
-      "Pour toute question concernant les INTOLÉRANCES ALIMENTAIRES ou les ALLERGIES, n'hésitez pas à vous adresser à notre personnel.",
+      "Pour toute question concernant les INTOLÉRANCES ou ALLERGIES, n'hésitez pas à vous adresser à notre personnel.",
+    allergenListTitle: "Liste des Allergènes (Règ. UE 1169/2011)",
+    allergenListText:
+      "Nos produits peuvent contenir : 1. Céréales (gluten), 2. Crustacés, 3. Œufs, 4. Poissons, 5. Arachides, et produits à base de ces allergènes.",
     receiptTitle: "Reçu Légal",
     receiptText:
       "Le consommateur n'est pas tenu de payer si le reçu ne lui a pas été remis.",
+    posTitle: "Terminal de Paiement",
+    posText:
+      "L'établissement est équipé d'un terminal de paiement par carte (POS) agréé.",
     dev: "Développement Web:",
-    legal: "Légal & Allergènes",
+    legal: "Légal",
     menu: "Menu",
   },
   es: {
-    backHome: "Volver al Inicio",
-    title: "Información Legal y Alérgenos",
+    backHome: "Volver",
+    title: "Información Legal",
     allergensTitle: "Alérgenos e Intolerancias",
     allergensText:
-      "Para preguntas o inquietudes sobre INTOLERANCIAS o ALERGIAS ALIMENTARIAS, no dude en consultar a nuestro personal.",
+      "Para preguntas sobre INTOLERANCIAS o ALERGIAS, consulte a nuestro personal.",
+    allergenListTitle: "Lista de Alérgenos (Reg. UE 1169/2011)",
+    allergenListText:
+      "Nuestros productos pueden contener: 1. Cereales (gluten), 2. Crustáceos, 3. Huevos, 4. Pescado, 5. Cacahuetes, y productos derivados.",
     receiptTitle: "Recibo Legal",
     receiptText:
       "El consumidor no está obligado a pagar si no se ha entregado el recibo.",
+    posTitle: "Terminal POS",
+    posText: "El establecimiento cuenta con un terminal POS aprobado.",
     dev: "Desarrollo Web:",
-    legal: "Legal y Alérgenos",
+    legal: "Legal",
     menu: "Menú",
   },
   sr: {
-    backHome: "Nazad na početnu",
-    title: "Pravne informacije i Alergeni",
+    backHome: "Nazad",
+    title: "Pravne informacije",
     allergensTitle: "Alergeni i Intolerancije",
     allergensText:
-      "Za pitanja u vezi sa INTOLERANCIJOM NA HRANU ili ALERGIJAMA, ne ustručavajte se da pitate naše osoblje.",
+      "Za pitanja u vezi sa INTOLERANCIJOM ili ALERGIJAMA, pitajte naše osoblje.",
+    allergenListTitle: "Lista Alergena (EU 1169/2011)",
+    allergenListText:
+      "Naši proizvodi mogu sadržati: 1. Žitarice (gluten), 2. Rakovi, 3. Jaja, 4. Riba, 5. Kikiriki, i njihove proizvode.",
     receiptTitle: "Pravni Račun",
-    receiptText:
-      "Potrošač nije dužan da plati ako mu nije izdat fiskalni račun.",
+    receiptText: "Potrošač nije dužan da plati ako mu nije izdat račun.",
+    posTitle: "POS Terminal",
+    posText: "Objekat je opremljen odobrenim POS terminalom.",
     dev: "Izrada sajta:",
-    legal: "Pravno i Alergeni",
+    legal: "Pravno",
     menu: "Meni",
   },
   bg: {
-    backHome: "Обратно в началото",
-    title: "Правна информация и Алергени",
+    backHome: "Обратно",
+    title: "Правна информация",
     allergensTitle: "Алергени и Непоносимости",
     allergensText:
-      "За въпроси относно ХРАНИТЕЛНИ НЕПОНОСИМОСТИ или АЛЕРГИИ, моля, попитайте нашия персонал.",
+      "За въпроси относно ХРАНИТЕЛНИ НЕПОНОСИМОСТИ или АЛЕРГИИ, попитайте нашия персонал.",
+    allergenListTitle: "Списък на Алергените (ЕС 1169/2011)",
+    allergenListText:
+      "Нашите продукти могат да съдържат: 1. Зърнени (глутен), 2. Ракообразни, 3. Яйца, 4. Риба, 5. Фъстъци.",
     receiptTitle: "Касова бележка",
-    receiptText:
-      "Потребителят не е длъжен да плати, ако не му е издадена касова бележка.",
+    receiptText: "Потребителят не е длъжен да плати без касова бележка.",
+    posTitle: "ПОС терминал",
+    posText: "Обектът разполага с одобрен ПОС терминал.",
     dev: "Изработка на сайт:",
-    legal: "Правни & Алергени",
+    legal: "Правни",
     menu: "Меню",
   },
   ro: {
-    backHome: "Înapoi la pagina principală",
-    title: "Informații Legale & Alergeni",
+    backHome: "Înapoi",
+    title: "Informații Legale",
     allergensTitle: "Alergeni & Intoleranțe",
     allergensText:
-      "Pentru întrebări referitoare la INTOLERANȚE sau ALERGII ALIMENTARE, vă rugăm să întrebați personalul nostru.",
+      "Pentru întrebări referitoare la INTOLERANȚE sau ALERGII, vă rugăm să întrebați personalul nostru.",
+    allergenListTitle: "Lista de Alergeni (UE 1169/2011)",
+    allergenListText:
+      "Produsele noastre pot conține: 1. Cereale (gluten), 2. Crustacee, 3. Ouă, 4. Pește, 5. Arahide.",
     receiptTitle: "Bon Fiscal",
     receiptText:
-      "Consumatorul nu este obligat să plătească dacă nu i-a fost eliberat bonul fiscal.",
+      "Consumatorul nu este obligat să plătească dacă nu i-a fost eliberat bonul.",
+    posTitle: "Terminal POS",
+    posText: "Unitatea este echipată cu un terminal POS aprobat.",
     dev: "Dezvoltare Web:",
-    legal: "Legal & Alergeni",
+    legal: "Legal",
     menu: "Meniu",
   },
 };
@@ -160,17 +203,15 @@ export default function LegalPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-[#97dcf5] selection:text-slate-900 flex flex-col">
-      {/* --- HEADER (Μινιμαλιστικό) --- */}
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
         <div className="max-w-4xl mx-auto px-4 h-16 md:h-20 flex items-center justify-between">
           <Link
             href="/"
-            className="flex items-center gap-2 text-slate-600 hover:text-slate-900 font-bold transition-colors"
+            className="flex items-center gap-2 text-slate-600 hover:text-[#97dcf5] font-bold transition-colors"
           >
             <ArrowLeft size={20} />
             <span className="hidden sm:inline">{ui.backHome}</span>
           </Link>
-
           <Link href="/" className="relative w-24 h-7 md:w-32 md:h-10">
             <Image
               src="/images/logo/zucchero_logo.png"
@@ -180,8 +221,6 @@ export default function LegalPage() {
               priority
             />
           </Link>
-
-          {/* LANG DROPDOWN */}
           <div className="relative">
             <button
               onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
@@ -203,7 +242,6 @@ export default function LegalPage() {
                 className={`text-slate-600 transition-transform ${isLangMenuOpen ? "rotate-180" : ""}`}
               />
             </button>
-
             <AnimatePresence>
               {isLangMenuOpen && (
                 <>
@@ -245,7 +283,6 @@ export default function LegalPage() {
         </div>
       </header>
 
-      {/* --- CONTENT AREA --- */}
       <main className="flex-grow py-12 md:py-20 px-4">
         <motion.div
           initial="hidden"
@@ -260,9 +297,8 @@ export default function LegalPage() {
             <div className="w-16 h-1.5 bg-[#97dcf5] mx-auto rounded-full"></div>
           </div>
 
-          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
-            {/* Block 1: Allergens */}
-            <div className="p-8 md:p-10 border-b border-slate-100">
+          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden divide-y divide-slate-100">
+            <div className="p-8 md:p-10">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-10 h-10 bg-amber-50 text-amber-500 rounded-xl flex items-center justify-center shrink-0">
                   <ShieldAlert size={20} />
@@ -276,7 +312,20 @@ export default function LegalPage() {
               </p>
             </div>
 
-            {/* Block 2: Receipt */}
+            <div className="p-8 md:p-10">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-10 h-10 bg-orange-50 text-orange-500 rounded-xl flex items-center justify-center shrink-0">
+                  <AlertTriangle size={20} />
+                </div>
+                <h2 className="text-xl font-bold text-slate-800">
+                  {ui.allergenListTitle}
+                </h2>
+              </div>
+              <p className="text-slate-600 leading-relaxed pl-14">
+                {ui.allergenListText}
+              </p>
+            </div>
+
             <div className="p-8 md:p-10">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-10 h-10 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center shrink-0">
@@ -291,13 +340,24 @@ export default function LegalPage() {
               </p>
             </div>
 
-            {/* Όταν έχεις κι άλλα κείμενα, απλά κάνεις Copy-Paste ένα τέτοιο "Block" παρακάτω! */}
+            <div className="p-8 md:p-10">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-10 h-10 bg-green-50 text-green-500 rounded-xl flex items-center justify-center shrink-0">
+                  <CreditCard size={20} />
+                </div>
+                <h2 className="text-xl font-bold text-slate-800">
+                  {ui.posTitle}
+                </h2>
+              </div>
+              <p className="text-slate-600 leading-relaxed pl-14">
+                {ui.posText}
+              </p>
+            </div>
           </div>
         </motion.div>
       </main>
 
-      {/* --- FOOTER --- */}
-      <footer className="bg-slate-900 text-slate-400 py-10 px-4">
+      <footer className="bg-slate-900 text-slate-400 py-10 px-4 mt-auto">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 border-b border-slate-800 pb-8 mb-6">
           <div className="flex items-center gap-4 text-sm font-medium">
             <Link href="/" className="hover:text-white transition-colors">
@@ -311,7 +371,6 @@ export default function LegalPage() {
               {ui.menu}
             </Link>
           </div>
-
           <div className="text-sm text-center md:text-right">
             <p className="mb-1 text-slate-500 text-[10px] uppercase tracking-wider">
               {ui.dev}

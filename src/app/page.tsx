@@ -645,6 +645,41 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-slate-900/60" />
       </div>
 
+      {/* 👇 2. ΕΔΩ ΑΚΡΙΒΩΣ ΚΑΝΕΙΣ ΕΠΙΚΟΛΛΗΣΗ ΤΟΝ ΚΩΔΙΚΑ ΤΟΥ BANNER ΠΟΥ ΣΟΥ ΕΔΩΣΑ 👇 */}
+      {/* <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+        className="relative z-30 pt-28 md:pt-32 px-4 max-w-5xl mx-auto w-full"
+      >
+        <div className="bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-white/40">
+          <div className="p-6 md:p-10 flex flex-col justify-center w-full md:w-3/5 order-2 md:order-1">
+            <div className="inline-block bg-orange-100 text-orange-600 font-bold px-3 py-1 rounded-full text-xs mb-3 w-max">
+              ΑΓΑΠΗΜΕΝΟ ΤΟΥ ΜΗΝΑ
+            </div>
+            <h3 className="text-2xl md:text-3xl font-black text-slate-800 mb-3">
+              Ολόφρεσκοι Λουκουμάδες
+            </h3>
+            <p className="text-slate-600 mb-6 font-medium">
+              Τραγανοί απ' έξω, αφράτοι από μέσα. Τηγανίζονται μπροστά σας και σερβίρονται ζεστοί με πλούσιο μέλι ή σοκολάτα!
+            </p>
+            <Link href={`/menu?lang=${lang}`} className="bg-orange-500 text-white font-bold py-2.5 px-6 rounded-xl w-max hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/30">
+              {ui.menu}
+            </Link>
+          </div>
+          <div className="w-full md:w-2/5 h-64 md:h-auto relative bg-slate-900 order-1 md:order-2">
+            <video 
+              src="/1000033031.mp4" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+        </div>
+      </motion.div>    */}
+
       <section className="relative z-10 h-[65vh] flex flex-col items-center justify-center text-center px-4 pt-16">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
