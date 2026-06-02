@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { db } from "../../../db/index";
-import { menuItems, categories } from "../../../db/schema"; // Βάλαμε ΚΑΙ τις categories
+import { db } from "../../../../db/index";
+import { menuItems, categories } from "../../../../db/schema"; // Βάλαμε ΚΑΙ τις categories
 import { eq } from "drizzle-orm";
 
 export const runtime = 'edge';
