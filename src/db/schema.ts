@@ -5,6 +5,7 @@ export const categories = sqliteTable("categories", {
   id: text("id").primaryKey(),
   isNotAvailable: integer("is_not_available", { mode: "boolean" }).default(false), 
   translations: text("translations", { mode: "json" }).notNull(),
+  sortOrder: integer("sort_order").default(0),
 });
 
 // Πίνακας για τα Προϊόντα (MenuItems)

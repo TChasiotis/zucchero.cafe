@@ -12,6 +12,7 @@ export type Category = {
     bg: string;
     ro: string;
   };
+  sortOrder?: number;
 };
 
 // Εξηγούμε στην TypeScript πώς μοιάζει ένα Προϊόν (με τις 8 γλώσσες πλέον)
