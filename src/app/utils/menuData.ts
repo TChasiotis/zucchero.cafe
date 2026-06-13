@@ -41,6 +41,7 @@ export type MenuItem = {
   hasSoy?: boolean;
   isSoldOut?: boolean;
   isSeparator?: boolean;
+  sortOrder?: number;
 };
 
 export const categories: Category[] = [
