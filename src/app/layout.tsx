@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Zucchero",
-  description: "Zucchero Ζαχαροπλαστείο",
+  description:
+    "Δες το ψηφιακό μενού του Zucchero! Καφές, φρέσκα γλυκά, κρέπες και αλμυρές επιλογές, φτιαγμένα με τα καλύτερα υλικά. Κάνε την παραγγελία σου εύκολα και γρήγορα.",
   icons: {
     // Βεβαιώσου ότι η κατάληξη είναι σωστή (.png, .jpg, .ico κλπ)
     icon: "/images/logo/browser_logo-removebg-preview_1.png",
