@@ -30,3 +30,9 @@ export const menuItems = sqliteTable("menu_items", {
   isSoldOut: integer("is_sold_out", { mode: "boolean" }).default(false),
   sortOrder: integer("sort_order").default(0),
 });
+
+// Πίνακας για τις Γενικές Ρυθμίσεις του Καταστήματος
+export const storeSettings = sqliteTable("store_settings", {
+  id: text("id").primaryKey(), // Εδώ θα μπαίνει πάντα η λέξη 'default'
+  serviceFee: real("service_fee").default(0.50).notNull(),
+});
