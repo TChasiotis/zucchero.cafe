@@ -28,6 +28,7 @@ export const menuItems = sqliteTable("menu_items", {
   hasNuts: integer("has_nuts", { mode: "boolean" }).default(false),
   hasSoy: integer("has_soy", { mode: "boolean" }).default(false),
   isSoldOut: integer("is_sold_out", { mode: "boolean" }).default(false),
+  isSeparator: integer("is_separator", { mode: "boolean" }).default(false),
   sortOrder: integer("sort_order").default(0),
 });
 
