@@ -11,39 +11,35 @@ export async function GET() {
     // 1. Τραβάμε το Service Fee από τη βάση
     const settings = await db.select().from(storeSettings).limit(1);
     const currentServiceFee = settings.length > 0 ? settings[0].serviceFee : 0.50;
-    const feeText = currentServiceFee.toFixed(2); // π.χ. "0.70"
+    const feeText = currentServiceFee.toFixed(2); // "0.70"
 
-    // 2. Τραβάμε όλες τις κατηγορίες
+    // 2. Τραβάμε όλα τα δεδομένα
     const allCategories = await db.select().from(categories).orderBy(asc(categories.sortOrder));
-    
-    // 3. Τραβάμε όλα τα προϊόντα (items)
     const allItems = await db.select().from(menuItems).orderBy(asc(menuItems.sortOrder));
 
-    // 4. Η ΑΠΟΛΥΤΗ ΚΑΙ ΑΠΑΡΑΒΙΑΣΤΗ ΑΝΤΙΚΑΤΑΣΤΑΣΗ
+    // 3. Η ΑΠΟΛΥΤΗ C-STYLE ΑΝΤΙΚΑΤΑΣΤΑΣΗ
     const processedItems = allItems.map((item) => {
       if (!item.translations) return item;
 
       try {
-        // Μετρέπουμε ΟΛΟ το translations σε ένα ενιαίο String κειμένου
-        const jsonString = typeof item.translations === "string"
-          ? item.translations
+        // Το κάνουμε όλο ένα απλό String
+        let jsonString = typeof item.translations === "string" 
+          ? item.translations 
           : JSON.stringify(item.translations);
 
-        // Αντικαθιστούμε το {fee} απευθείας στο κείμενο, σε όποια γλώσσα κι αν βρίσκεται
-        const updatedJsonString = jsonString.replace(/\{\s*fee\s*\}/gi, feeText);
+        // Το απόλυτο find & replace: Σπάει το κείμενο στο {fee} και το ενώνει με το 0.70
+        jsonString = jsonString.split("{fee}").join(feeText);
 
-        // Το μετατρέπουμε ξανά σε Object για να φύγει σωστά στο τελικό JSON response
         return { 
           ...item, 
-          translations: JSON.parse(updatedJsonString) 
+          translations: JSON.parse(jsonString) 
         };
       } catch (e) {
-        console.error("Error updating fee placeholder for item:", item.id, e);
         return item;
       }
     });
 
-    // 5. Στέλνουμε το έτοιμο πακέτο
+    // 4. ΣΤΕΛΝΟΥΜΕ ΤΗΝ ΑΠΑΝΤΗΣΗ ΜΕ ΑΠΑΓΟΡΕΥΣΗ CACHING (Anti-Cache Headers)
     return NextResponse.json(
       { 
         success: true,
@@ -51,7 +47,14 @@ export async function GET() {
         categories: allCategories, 
         items: processedItems 
       }, 
-      { status: 200 }
+      { 
+        status: 200,
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0',
+        }
+      }
     );
     
   } catch (error) {
