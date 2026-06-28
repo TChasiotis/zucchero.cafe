@@ -7,14 +7,14 @@ export const pies: MenuItem[] = [
     price: 0,
     hidePrice: true,
     translations: {
-      el: { name: "ℹ️ Χρήσιμες Πληροφορίες", description: "Στις χωριάτικες πίτες (με το κομμάτι) υπάρχει επιπλέον πάγια χρέωση service fee +0.50€ ανά παραγγελία." },
-      en: { name: "ℹ️ Useful Information", description: "An additional flat +0.50€ service fee applies per order for rustic pies." },
-      de: { name: "ℹ️ Nützliche Informationen", description: "Für rustikale Pitas fällt eine zusätzliche pauschale Servicegebühr von +0,50 € pro Bestellung an." },
-      fr: { name: "ℹ️ Informations utiles", description: "Des frais de service forfaitaires supplémentaires de +0,50 € s'appliquent par commande pour les tourtes rustiques." },
-      es: { name: "ℹ️ Información útil", description: "Se aplica un cargo de servicio fijo adicional de +0,50 € por pedido para los pasteles rústicos." },
-      sr: { name: "ℹ️ Korisne informacije", description: "Primenjuje se dodatna fiksna doplata za uslugu od +0.50€ po porudžbini za rustične pite." },
-      bg: { name: "ℹ️ Полезна информация", description: "Удържа се допълнителна фиксирана такса за обслужване от +0.50€ на поръчка за селски баници." },
-      ro: { name: "ℹ️ Informații utile", description: "Se aplică o taxă de servire fixă suplimentară de +0.50€ pe comandă pentru plăcintele rustice." }
+      el: { name: "ℹ️ Χρήσιμες Πληροφορίες", description: "Στις χωριάτικες πίτες (με το κομμάτι) υπάρχει επιπλέον πάγια χρέωση service fee +{fee}€ ανά παραγγελία." },
+      en: { name: "ℹ️ Useful Information", description: "An additional flat +{fee}€ service fee applies per order for rustic pies." },
+      de: { name: "ℹ️ Nützliche Informationen", description: "Für rustikale Pitas fällt eine zusätzliche pauschale Servicegebühr von +{fee} € pro Bestellung an." },
+      fr: { name: "ℹ️ Informations utiles", description: "Des frais de service forfaitaires supplémentaires de +{fee} € s'appliquent par commande pour les tourtes rustiques." },
+      es: { name: "ℹ️ Información útil", description: "Se aplica un cargo de servicio fijo adicional de +{fee} € por pedido para los pasteles rústicos." },
+      sr: { name: "ℹ️ Korisne informacije", description: "Primenjuje se dodatna fiksna doplata za uslugu od +{fee}€ po porudžbini za rustične pite." },
+      bg: { name: "ℹ️ Полезна информация", description: "Удържа се допълнителна фиксирана такса за обслужване от +{fee}€ на поръчка за селски баници." },
+      ro: { name: "ℹ️ Informații utile", description: "Se aplică o taxă de servire fixă suplimentară de +{fee}€ pe comandă pentru plăcintele rustice." }
     }
   },
   {

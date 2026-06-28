@@ -8,14 +8,14 @@ export const tsoureki: MenuItem[] = [
     price: 0,
     hidePrice: true,
     translations: {
-      el: { name: "ℹ️ Χρήσιμες Πληροφορίες", description: "Στα προϊόντα που χρεώνονται με το κιλό υπάρχει επιπλέον service fee +0.50€." },
-      en: { name: "ℹ️ Useful Information", description: "An additional +0.50€ service fee applies to products sold per kilogram." },
-      de: { name: "ℹ️ Nützliche Informationen", description: "Für Produkte, die pro Kilogramm verkauft werden, fällt eine zusätzliche Servicegebühr von +0,50 € an." },
-      fr: { name: "ℹ️ Informations utiles", description: "Des frais de service supplémentaires de +0,50 € s'appliquent aux produits vendus au kilogramme." },
-      es: { name: "ℹ️ Información útil", description: "Se aplica un cargo de servicio adicional de +0,50 € a los productos vendidos por kilógramo." },
-      sr: { name: "ℹ️ Korisne informacije", description: "Primenjuje se dodatna doplata za uslugu od +0.50€ za proizvode koji se prodaju po kilogramu." },
-      bg: { name: "ℹ️ Полезна информация", description: "Удържа се допълнителна такса за обслужване от +0.50€ за продукти, продавани на килограм." },
-      ro: { name: "ℹ️ Informații utile", description: "Se aplică o taxă suplimentară de servire de +0.50€ pentru produsele vândute la kilogram." }
+      el: { name: "ℹ️ Χρήσιμες Πληροφορίες", description: "Στα προϊόντα που χρεώνονται με το κιλό υπάρχει επιπλέον service fee +{fee}€." },
+      en: { name: "ℹ️ Useful Information", description: "An additional +{fee}€ service fee applies to products sold per kilogram." },
+      de: { name: "ℹ️ Nützliche Informationen", description: "Für Produkte, die pro Kilogramm verkauft werden, fällt eine zusätzliche Servicegebühr von +{fee} € an." },
+      fr: { name: "ℹ️ Informations utiles", description: "Des frais de service supplémentaires de +{fee} € s'appliquent aux produits vendus au kilogramme." },
+      es: { name: "ℹ️ Información útil", description: "Se aplica un cargo de servicio adicional de +{fee} € a los productos vendidos por kilógramo." },
+      sr: { name: "ℹ️ Korisne informacije", description: "Primenjuje se dodatna doplata za uslugu od +{fee}€ za proizvode koji se prodaju po kilogramu." },
+      bg: { name: "ℹ️ Полезна информация", description: "Удържа се допълнителна такса за обслужване от +{fee}€ за продукти, продавани на килограм." },
+      ro: { name: "ℹ️ Informații utile", description: "Se aplică o taxă suplimentară de servire de +{fee}€ pentru produsele vândute la kilogram." }
     }
   },
   {

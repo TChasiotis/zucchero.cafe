@@ -12,8 +12,8 @@ export async function GET() {
     const settings = await db.select().from(storeSettings).limit(1);
     const currentServiceFee = settings.length > 0 ? settings[0].serviceFee : 0.50;
     
-    // Φτιάχνουμε το δυναμικό κείμενο (π.χ. "+0.50€" ή "+0.70€")
-    const feeText = `+${currentServiceFee.toFixed(2)}€`;
+    // Φτιάχνουμε την καθαρή μεταβλητή (π.χ. "0.70") που θα αντικαταστήσει το {fee}
+    const feeText = currentServiceFee.toFixed(2);
 
     // 2. Τραβάμε όλες τις κατηγορίες
     const allCategories = await db.select().from(categories).orderBy(asc(categories.sortOrder));
@@ -21,31 +21,20 @@ export async function GET() {
     // 3. Τραβάμε όλα τα προϊόντα (items)
     const allItems = await db.select().from(menuItems).orderBy(asc(menuItems.sortOrder));
 
-    // 4. ΜΑΓΕΙΑ: Δυναμική αντικατάσταση του fee μέσα στα info blocks πριν φύγουν από το API!
+    // 4. Δυναμική αντικατάσταση του {fee} σε όλες τις γλώσσες αυτόματα
     const processedItems = allItems.map((item) => {
-      // Αν το id περιέχει τη λέξη "info", σημαίνει ότι είναι info block
       if (item.id.includes("info") && item.translations) {
         try {
-          // Επειδή το Drizzle με mode: "json" φέρνει έτοιμο object
-          const trans = item.translations as any;
+          // Δημιουργούμε ένα αντίγραφο για να μην πειράξουμε απευθείας το instance του Drizzle
+          const trans = JSON.parse(JSON.stringify(item.translations));
 
-          // Regex που βρίσκει οποιοδήποτε μοτίβο της μορφής +X.XX€ ή +X,XX€
-          const feeRegex = /\+\s?[0-9.,]+\s?€/g;
-
-          // Αντικατάσταση στα Ελληνικά (el)
-          if (trans.el?.description) {
-            trans.el.description = trans.el.description.replace(feeRegex, feeText);
-          }
-          // Αντικατάσταση στα Αγγλικά (en)
-          if (trans.en?.description) {
-            trans.en.description = trans.en.description.replace(feeRegex, `+${currentServiceFee.toFixed(2)}€`);
-          }
-          // Αντικατάσταση στα Γερμανικά (de)
-          if (trans.de?.description) {
-            trans.de.description = trans.de.description.replace(feeRegex, `+${currentServiceFee.toFixed(2)}€`);
+          // Loop που περνάει αυτόματα από el, en, de, fr κλπ. χωρίς hardcoded λίστες
+          for (const lang in trans) {
+            if (trans[lang]?.description) {
+              trans[lang].description = trans[lang].description.replace("{fee}", feeText);
+            }
           }
 
-          // Επιστρέφουμε το item με τις διορθωμένες μεταφράσεις
           return { ...item, translations: trans };
         } catch (e) {
           console.error("Error processing json translations for item:", item.id, e);
@@ -54,13 +43,13 @@ export async function GET() {
       return item;
     });
 
-    // 5. Στέλνουμε το έτοιμο, πεντακάθαρο πακέτο
+    // 5. Στέλνουμε το έτοιμο πακέτο
     return NextResponse.json(
       { 
         success: true,
         serviceFee: currentServiceFee, 
         categories: allCategories, 
-        items: processedItems // Στέλνουμε τα επεξεργασμένα items!
+        items: processedItems 
       }, 
       { status: 200 }
     );
