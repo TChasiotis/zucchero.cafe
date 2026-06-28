@@ -22,16 +22,25 @@ export async function GET() {
     const allItems = await db.select().from(menuItems).orderBy(asc(menuItems.sortOrder));
 
     // 4. Δυναμική αντικατάσταση του {fee} σε όλες τις γλώσσες αυτόματα
+    // 4. Δυναμική αντικατάσταση του {fee} σε όλες τις γλώσσες αυτόματα
     const processedItems = allItems.map((item) => {
       if (item.id.includes("info") && item.translations) {
         try {
-          // Δημιουργούμε ένα αντίγραφο για να μην πειράξουμε απευθείας το instance του Drizzle
-          const trans = JSON.parse(JSON.stringify(item.translations));
+          // ΠΡΟΣΟΧΗ: Έλεγχος αν το ORM το έφερε σαν String ή έτοιμο Object
+          let trans: any;
+          if (typeof item.translations === "string") {
+            trans = JSON.parse(item.translations);
+          } else {
+            trans = JSON.parse(JSON.stringify(item.translations));
+          }
 
-          // Loop που περνάει αυτόματα από el, en, de, fr κλπ. χωρίς hardcoded λίστες
+          // Έξυπνο Regex που πιάνει το {fee} ανεξάρτητα από κενά ή κεφαλαία/μικρά
+          const feePattern = /\{\s*fee\s*\}/gi;
+
+          // Loop που περνάει αυτόματα από όλες τις γλώσσες
           for (const lang in trans) {
             if (trans[lang]?.description) {
-              trans[lang].description = trans[lang].description.replace("{fee}", feeText);
+              trans[lang].description = trans[lang].description.replace(feePattern, feeText);
             }
           }
 
