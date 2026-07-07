@@ -75,3 +75,11 @@ export const orderItems = sqliteTable("order_items", {
   // { variety: "Ντεκάφ", sugarLevel: "Μέτριος", sugarType: "Καστανή", milkType: "Φυτικό", topping: "Κανέλα", hasExtraShot: true, targetRequest: "250γρ", notes: "Xωρίς παγάκια" }
   customizations: text("customizations", { mode: "json" }).default("{}"),
 });
+
+// Πίνακας για τις Διαθέσιμες Επιλογές/Υλικά (Γάλατα, Ζάχαρες, Παγωτά κλπ)
+export const ingredients = sqliteTable("ingredients", {
+  id: text("id").primaryKey(), // π.χ. "sugar_stevia", "milk_almond"
+  name: text("name").notNull(), // π.χ. "Στέβια", "Γάλα Αμυγδάλου"
+  category: text("category").notNull(), // π.χ. "ZAXAPH", "ΓΑΛΑ", "ΠΑΓΩΤΟ"
+  isAvailable: integer("is_available", { mode: "boolean" }).default(true), // Το Toggle On/Off που ήθελες!
+});
