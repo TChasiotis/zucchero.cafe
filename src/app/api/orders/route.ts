@@ -1,23 +1,22 @@
 import { NextResponse } from "next/server";
 import { db } from "../../../db/index"; 
 import { orders, orderItems } from "../../../db/schema";
-import { asc } from "drizzle-orm"; 
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    // 1. Τραβάμε ΟΛΕΣ τις κεντρικές παραγγελίες και ΟΛΑ τα προϊόντα τους
+    // 1. Τραβάμε ΟΛΕΣ τις κεντρικές παραγγελίες (πλέον έρχεται αυτόματα και το globalPaid)
     const allOrders = await db.select().from(orders);
+    
+    // 2. Τραβάμε ΟΛΑ τα προϊόντα (πλέον έρχεται αυτόματα και το isPaid)
     const allOrderItems = await db.select().from(orderItems);
 
-    // 2. Ενώνουμε τα προϊόντα (items) μέσα στο σωστό τραπέζι (order)
+    // 3. Ενώνουμε τα προϊόντα (items) μέσα στο σωστό τραπέζι (order)
     const processedOrders = allOrders.map((order) => {
-      // Βρίσκουμε ποια αντικείμενα ανήκουν σε αυτή την παραγγελία
       const itemsForThisOrder = allOrderItems.filter(item => item.orderId === order.id);
 
-      // Επαναφέρουμε το JSON των customizations (ζάχαρες, γάλατα κλπ) 
       const parsedItems = itemsForThisOrder.map(item => {
         let parsedCustomizations = {};
         if (item.customizations) {
@@ -42,7 +41,7 @@ export async function GET() {
       };
     });
 
-    // 3. ΣΤΕΛΝΟΥΜΕ ΑΠΑΝΤΗΣΗ ΜΕ ANTI-CACHE HEADERS (Ακριβώς όπως το μενού)
+    // ΣΤΕΛΝΟΥΜΕ ΑΠΑΝΤΗΣΗ ΜΕ ANTI-CACHE HEADERS
     return NextResponse.json(
       { 
         success: true,

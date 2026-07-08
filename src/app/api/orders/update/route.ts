@@ -9,21 +9,18 @@ export async function POST(request: Request) {
   try {
     const changes = await request.json(); 
     
-    // Στην Turso/Drizzle, χρησιμοποιούμε transaction για μαζικές αλλαγές.
-    // Έτσι αν πέσει το ίντερνετ στη μέση, δεν θα γραφτεί μισή παραγγελία!
+    // Transaction για να μην γραφτεί μισή παραγγελία αν πέσει το ίντερνετ
     await db.transaction(async (tx) => {
         for (const change of changes) {
           
-          // 1. ΔΙΑΓΡΑΦΗ: Το τραπέζι πληρώθηκε ή ακυρώθηκε
+          // 1. ΔΙΑΓΡΑΦΗ (cascade deletes items automatically)
           if (change.isDeleted) {
-            // Λόγω του onDelete: "cascade" στο schema σου, σβήνοντας την παραγγελία 
-            // η Turso σβήνει ΑΥΤΟΜΑΤΑ και τους 5 καφέδες που είχε μέσα!
             await tx.delete(orders).where(eq(orders.id, change.id));
           } 
           
           // 2. ΕΝΗΜΕΡΩΣΗ / ΝΕΑ ΠΑΡΑΓΓΕΛΙΑ
           else {
-            // Βήμα Α: Αποθήκευση/Ενημέρωση του Κεντρικού Τραπεζιού
+            // Βήμα Α: Κεντρικό Τραπέζι (Μπήκε το globalPaid!)
             await tx.insert(orders).values({
               id: change.id,
               tableId: change.tableId,
@@ -31,25 +28,25 @@ export async function POST(request: Request) {
               paymentMode: change.paymentMode,
               globalPaymentMethod: change.globalPaymentMethod || "",
               globalReceipt: change.globalReceipt || false,
+              globalPaid: change.globalPaid || false, // <--- ΝΕΟ
               updatedAt: new Date().toISOString()
             })
             .onConflictDoUpdate({
-              target: orders.id, // Αν υπάρχει ήδη το ID, κάνε Update
+              target: orders.id, 
               set: {
                 status: change.status,
                 paymentMode: change.paymentMode,
                 globalPaymentMethod: change.globalPaymentMethod || "",
                 globalReceipt: change.globalReceipt || false,
+                globalPaid: change.globalPaid || false, // <--- ΝΕΟ
                 updatedAt: new Date().toISOString()
               }
             });
 
-            // Βήμα Β: Σβήνουμε όλα τα ΠΑΛΙΑ προϊόντα αυτού του τραπεζιού.
-            // Γιατί; Γιατί είναι πιο γρήγορο να τα σβήσεις και να γράψεις τα νέα,
-            // παρά να ελέγχεις ένα-ένα ποιος καφές διαγράφηκε και ποιος έμεινε!
+            // Βήμα Β: Σβήνουμε τα παλιά είδη
             await tx.delete(orderItems).where(eq(orderItems.orderId, change.id));
 
-            // Βήμα Γ: Εισαγωγή όλων των προϊόντων (της νέας λίστας)
+            // Βήμα Γ: Εισαγωγή των νέων ειδών (Μπήκε το isPaid!)
             if (change.items && change.items.length > 0) {
               const itemsToInsert = change.items.map((item: any) => ({
                 id: item.id,
@@ -60,7 +57,7 @@ export async function POST(request: Request) {
                 isServed: item.isServed || false,
                 paymentMethod: item.paymentMethod || "",
                 hasReceipt: item.hasReceipt || false,
-                // Πακετάρουμε τις ζάχαρες/γάλατα σε JSON string
+                isPaid: item.isPaid || false, // <--- ΝΕΟ
                 customizations: typeof item.customizations === "string" 
                   ? item.customizations 
                   : JSON.stringify(item.customizations || {})
