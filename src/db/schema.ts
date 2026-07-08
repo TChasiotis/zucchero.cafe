@@ -5,7 +5,6 @@ import { sql } from "drizzle-orm";
 // 1. ΟΙ ΔΙΚΟΙ ΣΟΥ ΥΠΑΡΧΟΝΤΕΣ ΠΙΝΑΚΕΣ (ΑΘΙΚΤΟΙ ΚΑΙ ΠΑΝΕΤΟΙΜΟΙ)
 // =========================================================
 
-// Πίνακας για τις Κατηγορίες (Categories)
 export const categories = sqliteTable("categories", {
   id: text("id").primaryKey(),
   isNotAvailable: integer("is_not_available", { mode: "boolean" }).default(false), 
@@ -13,18 +12,13 @@ export const categories = sqliteTable("categories", {
   sortOrder: integer("sort_order").default(0),
 });
 
-// Πίνακας για τα Προϊόντα (MenuItems)
 export const menuItems = sqliteTable("menu_items", {
   id: text("id").primaryKey(),
   categoryId: text("category_id").notNull(), 
   price: real("price").notNull(),
   hidePrice: integer("hide_price", { mode: "boolean" }).default(false),
-  unit: text("unit"), // Προαιρετικό (π.χ. "kg" ή "piece")
-  
-  // Το JSON που θα κρατάει όλες τις γλώσσες (name & description)
+  unit: text("unit"), 
   translations: text("translations", { mode: "json" }).notNull(),
-  
-  // Tags & Αλλεργιογόνα
   isPopular: integer("is_popular", { mode: "boolean" }).default(false),
   isVegan: integer("is_vegan", { mode: "boolean" }).default(false),
   isGlutenFree: integer("is_gluten_free", { mode: "boolean" }).default(false),
@@ -37,49 +31,43 @@ export const menuItems = sqliteTable("menu_items", {
   sortOrder: integer("sort_order").default(0),
 });
 
-// Πίνακας για τις Γενικές Ρυθμίσεις του Καταστήματος
 export const storeSettings = sqliteTable("store_settings", {
-  id: text("id").primaryKey(), // Εδώ θα μπαίνει πάντα η λέξη 'default'
+  id: text("id").primaryKey(), 
   serviceFee: real("service_fee").default(0.50).notNull(),
 });
-
 
 // =========================================================
 // 2. ΟΙ ΝΕΟΙ ΠΙΝΑΚΕΣ ΓΙΑ ΤΟ PDA ΚΑΙ ΤΗ ΔΙΑΧΕΙΡΙΣΗ ΠΑΡΑΓΓΕΛΙΩΝ
 // =========================================================
 
-// Πίνακας για τις Κεντρικές Παραγγελίες ανά Τραπέζι
 export const orders = sqliteTable("orders", {
-  id: text("id").primaryKey(), // UUID που θα δημιουργεί το PDA ή ο Server
-  tableId: text("table_id").notNull(), // Κρατάει το ID του τραπεζιού (π.χ. "T1" ή "Merged_1_2")
-  status: text("status").notNull().default("ΣΕ ΕΠΕΞΕΡΓΑΣΙΑ"), // "ΣΕ ΕΠΕΞΕΡΓΑΣΙΑ", "ΧΩΡΙΣ ΑΠΟΔΕΙΞΗ", "ΟΛΟΚΛΗΡΩΜΕΝΗ"
-  paymentMode: text("payment_mode").notNull().default("ΜΑΖΙ"), // "ΜΑΖΙ" ή "ΞΕΧΩΡΙΣΤΑ"
-  globalPaymentMethod: text("global_payment_method").default(""), // "ΚΑΡΤΑ" ή "ΜΕΤΡΗΤΑ" (χρήσιμο αν πληρώσουν ΜΑΖΙ)
-  globalReceipt: integer("global_receipt", { mode: "boolean" }).default(false), // Αν κόπηκε γενική απόδειξη για όλο το τραπέζι
-  createdAt: text("created_at").default(sql`(CURRENT_TIMESTAMP)`), // Πότε άνοιξε το τραπέζι
-  updatedAt: text("updated_at").default(sql`(CURRENT_TIMESTAMP)`), // Πότε έγινε η τελευταία αλλαγή/σερβίρισμα/πληρωμή
+  id: text("id").primaryKey(), 
+  tableId: text("table_id").notNull(), 
+  status: text("status").notNull().default("ΣΕ ΕΠΕΞΕΡΓΑΣΙΑ"), 
+  paymentMode: text("payment_mode").notNull().default("ΜΑΖΙ"), 
+  globalPaymentMethod: text("global_payment_method").default(""), 
+  globalReceipt: integer("global_receipt", { mode: "boolean" }).default(false), 
+  globalPaid: integer("global_paid", { mode: "boolean" }).default(false), // ΝΕΟ: Πληρώθηκε όλο το τραπέζι;
+  createdAt: text("created_at").default(sql`(CURRENT_TIMESTAMP)`), 
+  updatedAt: text("updated_at").default(sql`(CURRENT_TIMESTAMP)`), 
 });
 
-// Πίνακας για τα Προϊόντα της κάθε Παραγγελίας
 export const orderItems = sqliteTable("order_items", {
-  id: text("id").primaryKey(), // Μοναδικό ID για το κάθε item της λίστας
-  orderId: text("order_id").notNull().references(() => orders.id, { onDelete: "cascade" }), // Σύνδεση με την παραγγελία. Αν σβήσει η παραγγελία, σβήνονται αυτόματα και τα items!
-  productId: text("product_id").notNull().references(() => menuItems.id), // Σύνδεση με το μενού για να ξέρουμε τι πήραν
-  quantity: integer("quantity").notNull().default(1), // Ποσότητα (τεμάχια)
-  finalPrice: real("final_price").notNull(), // Η τελική τιμή του item (μαζί με έξτρα δόσεις, παγωτά κλπ) για να μένει στο ιστορικό ακόμα κι αν αλλάξεις τιμές στο μενού αργότερα!
-  isServed: integer("is_served", { mode: "boolean" }).default(false), // Το checkbox σερβιρίσματος που φτιάξαμε στο PDA!
-  paymentMethod: text("payment_method").default(""), // "ΚΑΡΤΑ" ή "ΜΕΤΡΗΤΑ" (χρησιμοποιείται αν πληρώσουν ΞΕΧΩΡΙΣΤΑ)
-  hasReceipt: integer("has_receipt", { mode: "boolean" }).default(false), // Αν βγήκε απόδειξη για το συγκεκριμένο αντικείμενο (για το ΞΕΧΩΡΙΣΤΑ)
-  
-  // ΤΟ ΜΑΓΙΚΟ JSON ΠΕΔΙΟ: Εδώ μέσα αποθηκεύουμε ένα object με όλες τις λεπτομέρειες:
-  // { variety: "Ντεκάφ", sugarLevel: "Μέτριος", sugarType: "Καστανή", milkType: "Φυτικό", topping: "Κανέλα", hasExtraShot: true, targetRequest: "250γρ", notes: "Xωρίς παγάκια" }
+  id: text("id").primaryKey(), 
+  orderId: text("order_id").notNull().references(() => orders.id, { onDelete: "cascade" }), 
+  productId: text("product_id").notNull().references(() => menuItems.id), 
+  quantity: integer("quantity").notNull().default(1), 
+  finalPrice: real("final_price").notNull(), 
+  isServed: integer("is_served", { mode: "boolean" }).default(false), 
+  paymentMethod: text("payment_method").default(""), 
+  hasReceipt: integer("has_receipt", { mode: "boolean" }).default(false), 
+  isPaid: integer("is_paid", { mode: "boolean" }).default(false), // ΝΕΟ: Πληρώθηκε ο συγκεκριμένος καφές;
   customizations: text("customizations", { mode: "json" }).default("{}"),
 });
 
-// Πίνακας για τις Διαθέσιμες Επιλογές/Υλικά (Γάλατα, Ζάχαρες, Παγωτά κλπ)
 export const ingredients = sqliteTable("ingredients", {
-  id: text("id").primaryKey(), // π.χ. "sugar_stevia", "milk_almond"
-  name: text("name").notNull(), // π.χ. "Στέβια", "Γάλα Αμυγδάλου"
-  category: text("category").notNull(), // π.χ. "ZAXAPH", "ΓΑΛΑ", "ΠΑΓΩΤΟ"
-  isAvailable: integer("is_available", { mode: "boolean" }).default(true), // Το Toggle On/Off που ήθελες!
+  id: text("id").primaryKey(), 
+  name: text("name").notNull(), 
+  category: text("category").notNull(), 
+  isAvailable: integer("is_available", { mode: "boolean" }).default(true), 
 });
