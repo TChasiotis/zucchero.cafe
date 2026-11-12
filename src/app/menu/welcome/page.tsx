@@ -28,7 +28,7 @@ export default function WelcomePage() {
   };
 
   return (
-    <div className="h-[100dvh] w-screen bg-[url('/images/background/GridArt_20250522_195346089_white.jpg')] bg-fixed bg-cover bg-center flex flex-col overflow-hidden font-sans">
+    <div className="h-[100dvh] w-screen bg-[url('/images/background/GridArt_20250522_195346089_white.jpg')] bg-fixed bg-cover bg-center flex flex-col overflow-y-auto font-sans">
       {/* --- HEADER (Κλειδωμένο Context) --- */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
