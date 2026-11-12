@@ -398,13 +398,25 @@ export default function HomePage() {
     restDelta: 0.001,
   });
 
-  useEffect(() => setMounted(true), []);
+  // H ΜΑΓΙΚΗ ΔΙΟΡΘΩΣΗ ΓΙΑ ΤΑ ANCHORS!
+  useEffect(() => {
+    setMounted(true);
+
+    if (typeof window !== "undefined" && window.location.hash) {
+      setTimeout(() => {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, []);
 
   const ui = translations[lang];
   const currentLangObj =
     availableLanguages.find((l) => l.code === lang) || availableLanguages[0];
 
-  // ΤΕΛΕΙΑ ΣΥΜΜΕΤΡΙΑ: Το Fade In & Fade Out είναι ακριβώς ίδια!
   const fadeUpVariant: any = {
     hidden: {
       opacity: 0,
@@ -425,8 +437,6 @@ export default function HomePage() {
     },
   };
 
-  // ΑΥΤΟ ΕΙΝΑΙ ΤΟ ΚΟΛΠΟ! Μια αόρατη ζώνη -15% πάνω/κάτω.
-  // Όταν το element ακουμπήσει αυτό το περιθώριο, ενεργοποιεί το hidden (fade out) ΕΝΩ το βλέπεις!
   const symmetricViewport = { once: false, margin: "-15% 0px -15% 0px" };
 
   if (!mounted) return null;
@@ -645,7 +655,6 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-slate-900/60" />
       </div>
 
-      {/* 👇 2. ΕΔΩ ΑΚΡΙΒΩΣ ΚΑΝΕΙΣ ΕΠΙΚΟΛΛΗΣΗ ΤΟΝ ΚΩΔΙΚΑ ΤΟΥ BANNER ΠΟΥ ΣΟΥ ΕΔΩΣΑ 👇 */}
       {/* <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -1016,7 +1025,6 @@ export default function HomePage() {
 
               <div className="flex flex-col gap-6">
                 <div className="relative w-full h-[300px] md:h-full min-h-[300px] rounded-[2rem] overflow-hidden shadow-sm border border-slate-200 bg-slate-200">
-                  {/* LIVE GOOGLE MAP - ME ΚΟΚΚΙΝΗ ΠΙΝΕΖΑ ΑΚΡΙΒΩΣ ΣΤΟ ΜΑΓΑΖΙ */}
                   <iframe
                     src="https://maps.google.com/maps?q=Zucchero%20%CE%96%CE%B1%CF%87%CE%B1%CF%81%CE%BF%CF%80%CE%BB%CE%B1%CF%83%CF%84%CE%B5%CE%AF%CE%BF%20Thessaloniki&t=&z=15&ie=UTF8&iwloc=&output=embed"
                     className="absolute top-0 left-0 w-full h-full border-0"
