@@ -28,8 +28,8 @@ export default function WelcomePage() {
   };
 
   return (
-    <div className="h-[100dvh] w-screen bg-[url('/images/background/GridArt_20250522_195346089_white.jpg')] bg-fixed bg-cover bg-center flex flex-col overflow-y-auto font-sans">
-      {/* --- HEADER (Κλειδωμένο Context) --- */}
+    <div className="min-h-[100dvh] w-full bg-[url('/images/background/GridArt_20250522_195346089_white.jpg')] bg-fixed bg-cover bg-center flex flex-col font-sans">
+      {/* --- HEADER --- */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -48,11 +48,8 @@ export default function WelcomePage() {
         </div>
       </motion.header>
 
-      {/* --- ΚΕΝΤΡΙΚΟ CONTAINER --- 
-          pt-7: Ορίζει την απόσταση από το Header σταθερά στα 28px */}
-      <div className="flex-grow w-full max-w-md mx-auto px-4 pt-7 pb-4 flex flex-col min-h-0">
-        {/* Απλωμένο Welcome Block 
-            mb-7: Ορίζει την απόσταση προς τα κουμπιά ΕΠΙΣΗΣ στα 28px για απόλυτη συμμετρία */}
+      {/* --- ΚΕΝΤΡΙΚΟ CONTAINER --- */}
+      <div className="flex-grow w-full max-w-md mx-auto px-4 pt-7 pb-12 flex flex-col">
         <motion.div
           initial={{ opacity: 0, y: -10, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -66,16 +63,15 @@ export default function WelcomePage() {
           </p>
         </motion.div>
 
-        {/* Το Grid των γλωσσών (Αφαιρέθηκε το ελαστικό κεντράρισμα, ακολουθεί φυσικά) */}
-        <div className="w-full min-h-0">
+        {/* Το Grid των γλωσσών */}
+        <div className="w-full">
           <div className="grid grid-cols-2 gap-3.5 w-full">
-            {/* Προσθέσαμε το index εδώ για να ελέγχουμε το delay του καθενός */}
             {availableLanguages.map((l, index) => (
               <motion.button
                 key={l.code}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }} // Εδώ γίνεται η μαγεία του καταρράκτη
+                transition={{ duration: 0.3, delay: index * 0.05 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => handleLanguageSelect(l.code)}
@@ -100,7 +96,7 @@ export default function WelcomePage() {
         </div>
       </div>
 
-      {/* --- FOOTER (Κλειδωμένο Context) --- */}
+      {/* --- FOOTER --- */}
       <footer className="mt-auto py-4 text-center text-slate-600 text-xs font-medium bg-white/70 backdrop-blur-md border-t border-slate-200 shrink-0 z-50">
         <p>
           © 2007 - {new Date().getFullYear()} Zucchero · All Rights Reserved
